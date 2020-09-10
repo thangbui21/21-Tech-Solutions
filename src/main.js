@@ -12,6 +12,11 @@ import router from './Routes';
 import App from './App';
 import layoutMixin from './mixins/layout';
 
+import VeeValidate from 'vee-validate';
+import Vuex from 'vuex';
+Vue.use(VeeValidate);
+Vue.use(Vuex);
+
 Vue.use(BootstrapVue);
 Vue.use(VCalendar, {
     firstDayOfWeek: 2
