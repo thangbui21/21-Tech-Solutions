@@ -7,20 +7,24 @@
         customHeader
       >
         <p class="widget-auth-info">Use your email to sign in.</p>
-        <form class="mt" @submit.prevent="login">
+        <form class="mt" @submit.prevent="handleLogin">
           <b-alert class="alert-sm" variant="danger" :show="!!errorMessage">{{errorMessage}}</b-alert>
-          <b-form-group label="Email" label-for="email">
+          <b-form-group label="User" label-for="user">
             <b-input-group>
               <b-input-group-text slot="prepend">
                 <i class="la la-user text-white"></i>
               </b-input-group-text>
               <input
-                id="email"
-                ref="email"
-                class="form-control input-transparent pl-3"
-                type="email"
-                required
-                placeholder="Email"
+
+                v-model="user.username"
+                v-validate="'required'"
+                type="text"
+                name="username"
+                id="username"
+                ref="username"
+                class="form-control input-transparent pl-3"                           
+                placeholder="User"
+
               />
             </b-input-group>
           </b-form-group>
@@ -30,11 +34,13 @@
                 <i class="la la-lock text-white"></i>
               </b-input-group-text>
               <input
+                v-model="user.password"
+                v-validate="'required'"
+                type="password"
+                name="password"
                 id="password"
                 ref="password"
-                class="form-control input-transparent pl-3"
-                type="password"
-                required
+                class="form-control input-transparent pl-3"            
                 placeholder="Password"
               />
             </b-input-group>
@@ -63,11 +69,6 @@
       </Widget>
     </b-container>
     <footer class="auth-footer">
-      Light Blue Vue Admin Dashboard Template - Made by
-      <a
-        href="https://flatlogic.com"
-        target="_blank"
-      >Flatlogic</a>
     </footer>
   </div>
 </template>
@@ -114,7 +115,7 @@ export default {
         if (this.user.username && this.user.password) {
           this.$store.dispatch("auth/login", this.user).then(
             () => {
-              this.$router.push("/profile");
+              this.$router.push("/app/user");
             },
             (error) => {
               this.loading = false;
@@ -126,16 +127,6 @@ export default {
           );
         }
       });
-    },
-
-    login() {
-      const email = this.$refs.email.value;
-      const password = this.$refs.password.value;
-
-      if (email.length !== 0 && password.length !== 0) {
-        window.localStorage.setItem("authenticated", true);
-        this.$router.push("/app/dashboard");
-      }
     },
   },
 

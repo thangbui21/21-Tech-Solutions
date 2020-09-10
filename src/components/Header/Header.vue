@@ -100,10 +100,16 @@ export default {
                 this.changeSidebarActive(paths.join('/'));
             }
         },
-        logout() {
-            window.localStorage.setItem('authenticated', false);
-            this.$router.push('/login');
-        },
+
+        ///
+        // logout() {
+        //     window.localStorage.setItem('authenticated', false);
+        //     this.$router.push('/login');
+        // },
+            logout() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push('/login');
+    }
     },
 };
 </script>
