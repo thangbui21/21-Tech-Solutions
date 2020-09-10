@@ -98,6 +98,11 @@
                 </b-col>
             </b-row>
             <b-row>
+                <b-col>
+                    <LineChart />
+                </b-col>
+            </b-row>
+            <b-row>
                 <b-col xs="12" lg="6" xl="4" v-for="stat in mock.bigStat" :key="stat.id">
                     <BigStat :product="stat.product" :color="stat.color" :total="stat.total" :registrations="stat.registrations" :bounce="stat.bounce" />
                 </b-col>
@@ -154,9 +159,6 @@
                 </div>
             </Widget>
         </b-col>
-
-        <b-col>
-        </b-col>
     </b-row>
 </div>
 </template>
@@ -165,7 +167,11 @@
 import Widget from "@/components/Widget/Widget";
 import BigStat from "./BigStat/BigStat";
 import mock from "./mock";
-import Calendar from '../Visits/components/Calendar/Calendar';
+import Calendar from "../Visits/components/Calendar/Calendar";
+import ApexCharts from "./ApexCharts/ApexCharts";
+import MixedApexCharts from "./ApexCharts/MixedApexCharts";
+import MixedLineColumn from "./ApexCharts/MixedLineColumn";
+import LineChart from "./HighCharts/LineChart";
 
 import {
     Chart
@@ -174,6 +180,10 @@ import {
 export default {
     name: "Dashboard",
     components: {
+        LineChart,
+        MixedLineColumn,
+        MixedApexCharts,
+        ApexCharts,
         Calendar,
         Widget,
         BigStat,

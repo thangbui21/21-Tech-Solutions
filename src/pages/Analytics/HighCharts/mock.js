@@ -1,5 +1,6 @@
 import Highcharts from 'highcharts';
-import config from '../../config';
+import config from '../../../config';
+
 const colors = config.colors;
 
 let columnColors = [colors.blue, colors.green, colors.orange, colors.red, colors.default, colors.gray, colors.teal, colors.pink];
@@ -496,7 +497,22 @@ export const chartData = {
           [Date.UTC(1971, 2, 30), 0.98],
           [Date.UTC(1971, 3, 3), 0.85],
           [Date.UTC(1971, 3, 6), 1.04],
-
+          [Date.UTC(1971, 3, 9), 0.92],
+          [Date.UTC(1971, 3, 12), 0.96],
+          [Date.UTC(1971, 3, 15), 0.94],
+          [Date.UTC(1971, 3, 18), 0.99],
+          [Date.UTC(1971, 3, 21), 0.96],
+          [Date.UTC(1971, 3, 24), 1.15],
+          [Date.UTC(1971, 3, 27), 1.18],
+          [Date.UTC(1971, 3, 30), 1.12],
+          [Date.UTC(1971, 4, 3), 1.06],
+          [Date.UTC(1971, 4, 6), 0.96],
+          [Date.UTC(1971, 4, 9), 0.87],
+          [Date.UTC(1971, 4, 12), 0.88],
+          [Date.UTC(1971, 4, 15), 0.79],
+          [Date.UTC(1971, 4, 18), 0.54],
+          [Date.UTC(1971, 4, 21), 0.34],
+          [Date.UTC(1971, 4, 25), 0]
         ]
       }]
     },
