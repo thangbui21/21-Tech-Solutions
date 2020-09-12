@@ -1,33 +1,20 @@
 <template>
   <div class="dashboard-page">
-    <h1 class="page-title">Dashboard</h1>
+    <h1 class="page-title">Analytics</h1>
     <b-row>
       <!--Thuộc tính lg="10" Chỉnh size của cột /12-->
       <b-col lg="9" xs="12">
         <b-row>
-          <b-col lg="3" sm="6" xs="12">
+          <!-- Total product -->
+          <b-col lg="4" sm="4" xs="12">
             <div class="pb-xlg h-100">
-              <Widget class="h-100 mb-0" title="Total Product" close>
+              <Widget class="h-100 mb-0" title="THỐNG KÊ" close>
                 <TotalProduct />
               </Widget>
             </div>
           </b-col>
-          <b-col>
-            <div class="pb-xlg h-100">
-              <Widget class="h-100 mb-0" title="Total Product" close>
-                <TotalProduct />
-              </Widget>
-            </div>
-          </b-col>
-          <!-- Tìm hiểu lỗi rồi thêm vào lại.
-        <b-col lg="3" sm="6" xs="12">
-            <div class="pb-xlg h-100">
-                <Widget class="h-100 mb-0" title="Revenue Breakdown" close>
-                    <highcharts :options="donut"></highcharts>
-                </Widget>
-            </div>
-        </b-col>
-          -->
+
+          <!--
           <b-col lg="3" sm="6" xs="12">
             <div class="pb-xlg h-100">
               <Widget class="h-100 mb-0" title="App Perfomance" close>
@@ -68,93 +55,46 @@
               </Widget>
             </div>
           </b-col>
-          <b-col lg="3" sm="6" xs="12">
-            <div >
-                <!--
-              <Widget class="h-100 mb-0" title="Server Overview" close>
-                <div class="d-flex align-items-center mb-sm">
-                  <p class="width-150">
-                    <small>60% / 37°С / 3.3 Ghz</small>
-                  </p>
-                  <div style="width: calc(100% - 150px)">
-                    <trend
-                      :data="getRandomData()"
-                      :gradient="[appConfig.colors.danger]"
-                      :height="40"
-                      stroke-width="4"
-                      smooth
-                    />
-                  </div>
-                </div>
-                <div class="d-flex align-items-center mb-sm">
-                  <p class="width-150">
-                    <small>54% / 31°С / 3.3 Ghz</small>
-                  </p>
-                  <div style="width: calc(100% - 150px)">
-                    <trend
-                      :data="getRandomData()"
-                      :gradient="[appConfig.colors.info]"
-                      :height="40"
-                      stroke-width="4"
-                      smooth
-                    />
-                  </div>
-                </div>
-                <div class="d-flex align-items-center">
-                  <p class="width-150">
-                    <small>57% / 21°С / 3.3 Ghz</small>
-                  </p>
-                  <div style="width: calc(100% - 150px)">
-                    <trend
-                      :data="getRandomData()"
-                      :gradient="[appConfig.colors.primary]"
-                      :height="40"
-                      stroke-width="4"
-                      smooth
-                    />
-                  </div>
-                </div>
-              
+          
+          <!Nhập hàng vào kho-->
+          <b-col lg="4" sm="4" xs="12">
+            <div class="pb-xlg h-100">
+              <Widget
+                class="h-100 mb-0"
+                title="<h6>HÀNG NHẬP KHO</h6>"
+                close
+                settings
+                customHeader
+              >
+              <Warehouse/>
               </Widget>
-              -->
-                      <Widget
-          title="<h6> USERBASE GROWTH </h6>"
-          close settings customHeader
-        >
-          <div class="stats-row">
-            <div class="stat-item">
-              <h6 class="name">Overall Growth</h6>
-              <p class="value">76.38%</p>
             </div>
-            <div class="stat-item">
-              <h6 class="name">Montly</h6>
-              <p class="value">10.38%</p>
-            </div>
-            <div class="stat-item">
-              <h6 class="name">24h</h6>
-              <p class="value">3.38%</p>
-            </div>
-          </div>
-          <b-progress variant="success" :value="60"
-            :max="100" class="progress-xs" />
-          <p>
-            <small>
-              <span class="circle bg-primary text-white">
-                <i class="la la-angle-up" />
-              </span>
-            </small>
-            <span class="fw-semi-bold">&nbsp;17% higher</span>
-            &nbsp;than last month
-          </p>
-        </Widget>
+          </b-col>
+
+          <!--Tổng hàng đã bán-->
+          <b-col lg="4" sm="4" xs="12">
+            <div class="pb-xlg h-100">
+              <Widget
+                class="h-100 mb-0"
+                title="<h6>HÀNG BÁN RA</h6>"
+                close
+                settings
+                customHeader
+              >
+              <TotalSold/>
+              </Widget>
             </div>
           </b-col>
         </b-row>
+
+        <!-- Biểu đồ -->
         <b-row>
-          <b-col>
+          <b-col xs="12" sm="12" lg="12" xl="12">
             <LineChart />
           </b-col>
         </b-row>
+
+        <!--Chi tiết mặt hàng-->
         <b-row>
           <b-col xs="12" lg="6" xl="4" v-for="stat in mock.bigStat" :key="stat.id">
             <BigStat
@@ -166,6 +106,9 @@
             />
           </b-col>
         </b-row>
+        
+    
+
         <b-row>
           <b-col xs="12">
             <Widget
@@ -210,6 +153,7 @@
           </b-col>
         </b-row>
       </b-col>
+
       <b-col lg="3" xs="12">
         <Widget title="<h6>Calendar</h6" bodyClass="p-0" settings close customHeader>
           <Calendar />
@@ -224,14 +168,54 @@
             </a>
           </div>
         </Widget>
-        <div>
-          <Widget close>
-            <TotalProduct />
-          </Widget>
-        </div>
 
         <Widget title="Visits Today" close>
           <Breakdown />
+        </Widget>
+
+        <Widget title="Server Overview" close>
+          <div class="d-flex align-items-center mb-sm">
+            <p class="width-150">
+              <small>60% / 37°С / 3.3 Ghz</small>
+            </p>
+            <div style="width: calc(100% - 150px)">
+              <trend
+                :data="getRandomData()"
+                :gradient="[appConfig.colors.danger]"
+                :height="40"
+                stroke-width="4"
+                smooth
+              />
+            </div>
+          </div>
+          <div class="d-flex align-items-center mb-sm">
+            <p class="width-150">
+              <small>54% / 31°С / 3.3 Ghz</small>
+            </p>
+            <div style="width: calc(100% - 150px)">
+              <trend
+                :data="getRandomData()"
+                :gradient="[appConfig.colors.info]"
+                :height="40"
+                stroke-width="4"
+                smooth
+              />
+            </div>
+          </div>
+          <div class="d-flex align-items-center">
+            <p class="width-150">
+              <small>57% / 21°С / 3.3 Ghz</small>
+            </p>
+            <div style="width: calc(100% - 150px)">
+              <trend
+                :data="getRandomData()"
+                :gradient="[appConfig.colors.primary]"
+                :height="40"
+                stroke-width="4"
+                smooth
+              />
+            </div>
+          </div>
         </Widget>
       </b-col>
     </b-row>
@@ -249,12 +233,19 @@ import MixedLineColumn from "./ApexCharts/MixedLineColumn";
 import LineChart from "./HighCharts/LineChart";
 import TotalProduct from "./TotalProduct/TotalProduct";
 import Breakdown from "./Breakdown/Breakdown";
+import Target from "./Target/Target";
+import Warehouse from "./Warehouse/Warehouse";
+import TotalSold from "./TotalSold/TotalSold";
+
 
 import { Chart } from "highcharts-vue";
 
 export default {
   name: "Dashboard",
   components: {
+    TotalSold,
+    Warehouse,
+    Target,
     Breakdown,
     TotalProduct,
     LineChart,

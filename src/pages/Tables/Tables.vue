@@ -311,6 +311,7 @@
             </tbody>
           </table>
         </Widget>
+        
         <Widget
           title="<h5>Table <span class='fw-semi-bold'>Styles</span></h5>"
           customHeader settings close
@@ -425,6 +426,7 @@
             </table>
           </div>
         </Widget>
+      
       </b-col>
    </b-row>
   </div>
@@ -526,6 +528,7 @@ export default {
       checkboxes3: [false, false, false, false, false, false],
     };
   },
+
   methods: {
     parseDate(date) {
       const dateSet = date.toDateString().split(' ');
@@ -554,7 +557,9 @@ export default {
       const colors = ['#547fff', '#9964e3', '#f55d5d', '#ffc247', '#3abf94'];
       return {colors: [colors[Math.floor(Math.random() * colors.length)]]}
     }
+  
   },
+
 };
 </script>
 

@@ -4,12 +4,12 @@
         <div class="d-flex justify-content-between flex-wrap px-4">
             <h4 class='d-flex align-items-center pb-1 bigStatTitle'>
                 <span :class="`circle bg-${color} mr-sm`" :style="{ fontSize: '6px' }" />
-                Statistic <span class="fw-normal ml-xs">{{product}}</span>
+                <span class="fw-normal ml-xs">{{product}}</span>
             </h4>
             <b-dropdown :text="text" variant="default" size="sm">
-                <b-dropdown-item-button @click="changeText('Daily')">Daily</b-dropdown-item-button>
-                <b-dropdown-item-button @click="changeText('Weekly')">Weekly</b-dropdown-item-button>
-                <b-dropdown-item-button @click="changeText('Yearly')">Yearly</b-dropdown-item-button>
+                <b-dropdown-item-button @click="changeText('Ngày')">Ngày</b-dropdown-item-button>
+                <b-dropdown-item-button @click="changeText('Tuần')">Tuần</b-dropdown-item-button>
+                <b-dropdown-item-button @click="changeText('Tháng')">Tháng</b-dropdown-item-button>
             </b-dropdown>
         </div>
         <div class="px-5">
@@ -21,15 +21,15 @@
                         <i :class="`la la-arrow-right la-lg ml-sm text-${registrations.profit ? 'primary' : 'danger'}
                 rotate-${registrations.profit ? '315' : '45'}`" />
                     </div>
-                    <p class="text-muted mb-0 mr"><small>Registrations</small></p>
+                    <p class="text-muted mb-0 mr"><small>Bán ra</small></p>
                 </div>
                 <div class="w-50 py-3 pl-2">
                     <div class="d-flex align-items-start">
-                        <h6>{{bounce.value}}%</h6>
+                        <h6>{{bounce.value}}k</h6>
                         <i :class="`la la-arrow-right la-lg ml-sm text-${bounce.profit ? 'primary' : 'danger'}
                 rotate-${bounce.profit ? '315' : '45'}`" />
                     </div>
-                    <p class="text-muted mb-0 mr"><small>Bounce Rate</small></p>
+                    <p class="text-muted mb-0 mr"><small>Số tiền</small></p>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@ export default {
     },
     data() {
         return {
-            text: 'Daily',
+            text: 'Ngày',
         };
     },
     methods: {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="d-flex justify-content-between align-items-center mb-lg">
+    <div class="d-flex justify-content-between align-items-center mb-lg" >
       <h2>{{totalProduct}}</h2>
       <i class="la la-arrow-right text-primary la-lg rotate-315" />
     </div>
@@ -8,19 +8,19 @@
       <div class="mt">
         <h6>+{{sold}}</h6>
         <p class="text-muted mb-0 mr">
-          <small>Sold</small>
+          <small>Đã bán</small>
         </p>
       </div>
       <div class="mt">
         <h6>{{inStock}}</h6>
         <p class="text-muted mb-0">
-          <small>In Stock</small>
+          <small>Tồn kho</small>
         </p>
       </div>
       <div class="mt">
         <h6>{{Math.round((sold/inStock)*100)/100}}%</h6>
         <p class="text-muted mb-0 mr">
-          <small>Percent</small>
+          <small>Tỉ lệ</small>
         </p>
       </div>
     </div>
