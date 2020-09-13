@@ -1,7 +1,7 @@
 <template>
   <div>
     <Widget
-      title="<h5>Biểu đồ <span class='fw-semi-bold'>đường</span></h5>"
+      title="<h5><span class='fw-semi-bold'></span></h5>"
       close
       collapse
       customHeader

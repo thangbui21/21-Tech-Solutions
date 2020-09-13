@@ -10,21 +10,13 @@
           <th>TÌNH TRẠNG</th>
         </tr>
       </thead>
-      <tbody  v-for="(row, index) in data" v-bind: key="index">
+      <tbody v-for="(row, index) in data" v-bind:key="index">
         <tr>
           <td>{{row.id}}</td>
           <td>{{row.productName}}</td>
           <td>{{row.total}}</td>
           <td>{{row.productPrice}}</td>
-          <td>{{row.city}}</td>
-          <td>
-            <b-button
-              :variant="row.status === 'Pending'
-                          ? 'success'
-                          : row.status === 'Declined' ? 'danger' : 'info'"
-              class="p-1 px-3 btn-xs"
-            >{{row.status}}</b-button>
-          </td>
+          <td>{{row.sold}}</td>
         </tr>
       </tbody>
     </table>
@@ -33,19 +25,25 @@
 
 <script>
 export default {
-    name: 'Table',
-    data() {
-        return {
-            
-        }
-    },
+  name: "Table",
+  data() {
+    return {
+      data: [
+        {
+          id: "H1",
+          productName: "Trà Chanh",
+          total: 500,
+          productPrice: 300,
+          sold: 200
+        },
+      ],
+    };
+  },
 
-    methods: {
-        
-    },
+  methods: {},
 
-    mounted() {
-        
-    },
+  mounted() {},
 };
 </script>
+
+<style src="./Table.scss" lang="scss" />

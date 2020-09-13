@@ -56,17 +56,11 @@
             </div>
           </b-col>
           
-          <!Nhập hàng vào kho-->
+          <! Nhập hàng vào kho-->
           <b-col lg="4" sm="4" xs="12">
             <div class="pb-xlg h-100">
-              <Widget
-                class="h-100 mb-0"
-                title="<h6>HÀNG NHẬP KHO</h6>"
-                close
-                settings
-                customHeader
-              >
-              <Warehouse/>
+              <Widget class="h-100 mb-0" title="<h6>HÀNG NHẬP KHO</h6>" close settings customHeader>
+                <Warehouse />
               </Widget>
             </div>
           </b-col>
@@ -74,14 +68,8 @@
           <!--Tổng hàng đã bán-->
           <b-col lg="4" sm="4" xs="12">
             <div class="pb-xlg h-100">
-              <Widget
-                class="h-100 mb-0"
-                title="<h6>HÀNG BÁN RA</h6>"
-                close
-                settings
-                customHeader
-              >
-              <TotalSold/>
+              <Widget class="h-100 mb-0" title="<h6>HÀNG BÁN RA</h6>" close settings customHeader>
+                <TotalSold />
               </Widget>
             </div>
           </b-col>
@@ -89,8 +77,13 @@
 
         <!-- Biểu đồ -->
         <b-row>
-          <b-col xs="12" sm="12" lg="12" xl="12">
+          <b-col xs="8" sm="8" lg="8" xl="8">
             <LineChart />
+          </b-col>
+          <b-col xs="12" md="4" sm="4" lg="4" xl="4">
+            <Widget title="Doanh thu từ các mặt hàng" close>
+              <Breakdown />
+            </Widget>
           </b-col>
         </b-row>
 
@@ -106,9 +99,8 @@
             />
           </b-col>
         </b-row>
-        
-    
 
+        <!--Bảng các mặt hàng -->
         <b-row>
           <b-col xs="12">
             <Widget
@@ -116,106 +108,20 @@
               bodyClass="widget-table-overflow"
               customHeader
             >
-              <div class="table-responsive">
-                <table class="table table-striped table-lg mb-0 requests-table">
-                  <thead>
-                    <tr class="text-muted">
-                      <th>NAME</th>
-                      <th>EMAIL</th>
-                      <th>PRODUCT</th>
-                      <th>PRICE</th>
-                      <th>DATE</th>
-                      <th>CITY</th>
-                      <th>STATUS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="row in mock.table" :key="row.id">
-                      <td>{{row.name}}</td>
-                      <td>{{row.email}}</td>
-                      <td>{{row.product}}</td>
-                      <td>{{row.price}}</td>
-                      <td>{{row.date}}</td>
-                      <td>{{row.city}}</td>
-                      <td>
-                        <b-button
-                          :variant="row.status === 'Pending'
-                          ? 'success'
-                          : row.status === 'Declined' ? 'danger' : 'info'"
-                          class="p-1 px-3 btn-xs"
-                        >{{row.status}}</b-button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <Table />
             </Widget>
           </b-col>
         </b-row>
       </b-col>
 
+      <!-- -->
       <b-col lg="3" xs="12">
         <Widget title="<h6>Calendar</h6" bodyClass="p-0" settings close customHeader>
           <Calendar />
-          <div class="list-group fs-mini">
-            <a href="#" class="list-group-item text-ellipsis">
-              <span class="badge badge-pill bg-primary float-right">6:45</span>
-              Weed out the flower bed
-            </a>
-            <a href="#" class="list-group-item text-ellipsis">
-              <span class="badge badge-pill badge-success float-right">9:41</span>
-              Stop world water pollution
-            </a>
-          </div>
         </Widget>
 
-        <Widget title="Visits Today" close>
+        <Widget title="Doanh thu từ các mặt hàng" close>
           <Breakdown />
-        </Widget>
-
-        <Widget title="Server Overview" close>
-          <div class="d-flex align-items-center mb-sm">
-            <p class="width-150">
-              <small>60% / 37°С / 3.3 Ghz</small>
-            </p>
-            <div style="width: calc(100% - 150px)">
-              <trend
-                :data="getRandomData()"
-                :gradient="[appConfig.colors.danger]"
-                :height="40"
-                stroke-width="4"
-                smooth
-              />
-            </div>
-          </div>
-          <div class="d-flex align-items-center mb-sm">
-            <p class="width-150">
-              <small>54% / 31°С / 3.3 Ghz</small>
-            </p>
-            <div style="width: calc(100% - 150px)">
-              <trend
-                :data="getRandomData()"
-                :gradient="[appConfig.colors.info]"
-                :height="40"
-                stroke-width="4"
-                smooth
-              />
-            </div>
-          </div>
-          <div class="d-flex align-items-center">
-            <p class="width-150">
-              <small>57% / 21°С / 3.3 Ghz</small>
-            </p>
-            <div style="width: calc(100% - 150px)">
-              <trend
-                :data="getRandomData()"
-                :gradient="[appConfig.colors.primary]"
-                :height="40"
-                stroke-width="4"
-                smooth
-              />
-            </div>
-          </div>
         </Widget>
       </b-col>
     </b-row>
@@ -236,13 +142,14 @@ import Breakdown from "./Breakdown/Breakdown";
 import Target from "./Target/Target";
 import Warehouse from "./Warehouse/Warehouse";
 import TotalSold from "./TotalSold/TotalSold";
-
+import Table from "./Table/Table";
 
 import { Chart } from "highcharts-vue";
 
 export default {
   name: "Dashboard",
   components: {
+    Table,
     TotalSold,
     Warehouse,
     Target,
