@@ -1,10 +1,10 @@
 <template>
   <div class="tables-basic">
     <b-breadcrumb>
-      <b-breadcrumb-item>YOU ARE HERE</b-breadcrumb-item>
-      <b-breadcrumb-item active>Tables Basic</b-breadcrumb-item>
+      <b-breadcrumb-item>THỐNG KÊ</b-breadcrumb-item>
+      <b-breadcrumb-item active></b-breadcrumb-item>
     </b-breadcrumb>
-    <h2 class="page-title">Tables - <span class="fw-semi-bold">Static</span></h2>
+    <h2 class="page-title">Đồ uống - <span class="fw-semi-bold"></span></h2>
     <b-row>
       <b-col>
         <Widget
@@ -16,12 +16,12 @@
               <thead>
                 <tr>
                   <th class="hidden-sm-down">#</th>
-                  <th>Picture</th>
-                  <th>Description</th>
-                  <th class="hidden-sm-down">Info</th>
-                  <th class="hidden-sm-down">Date</th>
-                  <th class="hidden-sm-down">Size</th>
-                  <th class="hidden-sm-down">Status</th>
+                  <th>Hình ảnh</th>
+                  <th>Giá nhập(Nguyên liệu)</th>
+                  <th class="hidden-sm-down">Giá bán</th>
+                  <th class="hidden-sm-down">Số lượng</th>
+                  <th class="hidden-sm-down">Số lượng</th>
+                  <th class="hidden-sm-down">Tình trạng</th>
                 </tr>
               </thead>
               <tbody>

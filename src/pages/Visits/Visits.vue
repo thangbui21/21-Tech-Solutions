@@ -13,21 +13,24 @@
           <Map />
         </Widget>
       </b-col>
+
+      <!--Mục tiêu tăng trưởng-->
       <b-col lg="4" offset-lg="1">
         <Widget
           class="bg-transparent"
-          title="<h5>Map<span class='fw-semi-bold'>&nbsp;Statistics</span></h5>"
+          title="<h5>Mục tiêu tăng trưởng<span class='fw-semi-bold'>&nbsp;</span></h5>"
           settings refresh close customHeader
         >
-          <p>Status: <strong>Live</strong></p>
+          <p>Trạng thái: <strong>Đang cập nhật</strong></p>
           <p>
             <span class="circle bg-primary text-white"><i class="la la-map-marker" /></span> &nbsp;
-            146 Countries, 2759 Cities
+            <!--Nếu là shop quần áo thì có thể là: Áo sơ mi, Áo thun, Quần, ... -->
+            20 loại đồ uống, 10 loại đồ ăn vặt, sách.
           </p>
           <div class="row progress-stats">
             <div class="col-md-9 col-12">
-              <h6 class="name">Foreign Visits</h6>
-              <p class="description deemphasize mb-xs">Some Cool Text</p>
+              <h6 class="name">Đồ uống</h6>
+              <p class="description deemphasize mb-xs">Nước ngọt, cà phê</p>
               <b-progress variant="primary" :value="60" :max="100" class="progress-xs" />
             </div>
             <div class="col-md-3 col-12 text-center">
@@ -36,10 +39,11 @@
               </span>
             </div>
           </div>
+          <!--Sẽ tổ chức CSDL như nào?-->
           <div class="row progress-stats">
             <div class="col-md-9 col-12">
-              <h6 class="name">Local Visits</h6>
-              <p class="description deemphasize mb-xs">P. to C. Conversion</p>
+              <h6 class="name">Đồ ăn vặt</h6>
+              <p class="description deemphasize mb-xs">Đồ khô, order.</p>
               <b-progress variant="danger" :value="39" :max="100" class="progress-xs" />
             </div>
             <div class="col-md-3 col-12 text-center">
@@ -50,8 +54,8 @@
           </div>
           <div class="row progress-stats">
             <div class="col-md-9 col-12">
-              <h6 class="name">Sound Frequencies</h6>
-              <p class="description deemphasize mb-xs">Average Bitrate</p>
+              <h6 class="name">Sách</h6>
+              <p class="description deemphasize mb-xs">Truyện, Sách giáo dục.</p>
               <b-progress variant="success" :value="80" :max="100" class="progress-xs" />
             </div>
             <div class="col-md-3 col-12 text-center">
@@ -60,14 +64,14 @@
               </span>
             </div>
           </div>
-          <h6 class="fw-semi-bold mt">Map Distributions</h6>
-          <p>Tracking: <strong>Active</strong></p>
+          <h6 class="fw-semi-bold mt">Các mốc đã đạt được</h6>
+          <p>Mốc: <strong>5</strong></p>
           <p>
             <span class="circle bg-primary text-white"><i class="la la-cog" /></span>
-            &nbsp; 391 elements installed, 84 sets
+            &nbsp; 391 đồ uống bán ra, lợi nhuận: 2.000.000
           </p>
           <b-input-group class="mt">
-            <b-form-input placeholder="Search..." />
+            <b-form-input placeholder="Tìm kiếm..." />
             <b-input-group-append>
               <b-btn variant="default">
                 <i class="la la-search" />
@@ -77,23 +81,25 @@
         </Widget>
       </b-col>
     </b-row>
+
+
     <b-row>
       <b-col lg="4" xs="12">
         <Widget
-          title="<h6> USERBASE GROWTH </h6>"
+          title="<h6> HÀNG NHẬP KHO</h6>"
           close settings customHeader
         >
           <div class="stats-row">
             <div class="stat-item">
-              <h6 class="name">Overall Growth</h6>
+              <h6 class="name">Tổng mức tăng</h6>
               <p class="value">76.38%</p>
             </div>
             <div class="stat-item">
-              <h6 class="name">Montly</h6>
+              <h6 class="name">Tháng qua</h6>
               <p class="value">10.38%</p>
             </div>
             <div class="stat-item">
-              <h6 class="name">24h</h6>
+              <h6 class="name">Ngày qua</h6>
               <p class="value">3.38%</p>
             </div>
           </div>
@@ -105,27 +111,29 @@
                 <i class="la la-angle-up" />
               </span>
             </small>
-            <span class="fw-semi-bold">&nbsp;17% higher</span>
-            &nbsp;than last month
+            <span class="fw-semi-bold">&nbsp;17% cao hơn</span>
+            &nbsp;so với tháng trước
           </p>
         </Widget>
       </b-col>
+
+
       <b-col lg="4" xs="12">
         <Widget
-          title="<h6> TRAFFIC VALUES </h6>"
+          title="<h6> SẢN PHẨM BÁN RA </h6>"
           close settings customHeader
         >
           <div class="stats-row">
             <div class="stat-item">
-              <h6 class="name">Overall Values</h6>
+              <h6 class="name">Tổng giá trị</h6>
               <p class="value">17 567 318</p>
             </div>
             <div class="stat-item">
-              <h6 class="name">Montly</h6>
+              <h6 class="name">Tháng qua</h6>
               <p class="value">55 120</p>
             </div>
             <div class="stat-item">
-              <h6 class="name">24h</h6>
+              <h6 class="name">Ngày qua</h6>
               <p class="value">9 695</p>
             </div>
           </div>
@@ -137,28 +145,32 @@
                 <i class="la la-angle-down" />
               </span>
             </small>
-            <span class="fw-semi-bold">&nbsp;8% lower</span>
-            &nbsp;than last month
+            <span class="fw-semi-bold">&nbsp;8% thấp hơn</span>
+            &nbsp;so với tháng trước
           </p>
         </Widget>
       </b-col>
       <b-col lg="4" xs="12">
         <Widget
-          title="<h6> RANDOM VALUES </h6>"
+          title="<h6> LỢI NHUẬN THU ĐƯỢC </h6>"
           close settings customHeader
         >
           <div class="stats-row">
             <div class="stat-item">
-              <h6 class="name fs-sm">Overcome T.</h6>
-              <p class="value">104.85%</p>
+              <h6 class="name fs-sm">Doanh thu tăng</h6>
+              <p class="value">10.85%</p>
             </div>
             <div class="stat-item">
-              <h6 class="name fs-sm">Takeoff Angle</h6>
-              <p class="value">14.29&deg;</p>
+              <h6 class="name fs-sm">Đồ uống</h6>
+              <p class="value">3.45%&deg;</p>
             </div>
             <div class="stat-item">
-              <h6 class="name fs-sm">World Pop.</h6>
-              <p class="value">7,211M</p>
+              <h6 class="name fs-sm">Đồ ăn</h6>
+              <p class="value">4.2%</p>
+            </div>
+                        <div class="stat-item">
+              <h6 class="name fs-sm">Sách</h6>
+              <p class="value">2.2%</p>
             </div>
           </div>
           <b-progress variant="primary" :value="60"
@@ -169,16 +181,18 @@
                 <i class="la la-plus" />
               </span>
             </small>
-            <span class="fw-semi-bold">&nbsp;8 734 higher</span>
-            &nbsp;than last month
+            <span class="fw-semi-bold">&nbsp;cao hơn 5%</span>
+            &nbsp;so với tháng trước.
           </p>
         </Widget>
       </b-col>
     </b-row>
+
+    <!--Các ý tưởng-->
     <b-row>
       <b-col lg="4" xs="12">
         <Widget
-          title="<h6><span class='badge badge-danger'>New</span> Messages</h6>"
+          title="<h6><span class='badge badge-danger'>New</span> Tin nhắn</h6>"
           refresh close customHeader
         >
           <div class="widget-body p-0">
@@ -189,9 +203,9 @@
                   <i class="status status-bottom bg-success" />
                 </span>
                 <div>
-                  <h6 class="m-0">Chris Gray</h6>
+                  <h6 class="m-0">Bùi Nguyện-Cơ sở 1</h6>
                   <p class="help-block text-ellipsis m-0">
-                    Hey! What&apos;s up? So many times since we
+                    Anh ơi!&apos; Cửa hàng thiếu nguyên liệu làm trà
                   </p>
                 </div>
               </a>
@@ -201,9 +215,9 @@
                   <i class="status status-bottom bg-success" />
                 </span>
                 <div>
-                  <h6 class="m-0">Jamey Brownlow</h6>
+                  <h6 class="m-0">Trạng Quỳnh-Cơ sở 2</h6>
                   <p class="help-block text-ellipsis m-0">
-                    Good news coming tonight. Seems they agreed to proceed
+                    Khách đang muốn mua thêm sách IT, anh xem chỗ nào còn mang qua em
                   </p>
                 </div>
               </a>
@@ -213,18 +227,18 @@
                   <i class="status status-bottom bg-primary" />
                 </span>
                 <div>
-                  <h6 class="m-0">Livia Walsh</h6>
-                  <p class="help-block text-ellipsis m-0">Check my latest email plz!</p>
+                  <h6 class="m-0">Minh Nguyễn-Cơ sở 3</h6>
+                  <p class="help-block text-ellipsis m-0">Anh rảnh không? Đi cà phê đê</p>
                 </div>
               </a>
               <a class="list-group-item" href="#">
                 <span class="thumb-sm float-left mr">
-                  <img class="rounded-circle" src="../../assets/people/a5.jpg" alt="..." />
+                  <img class="rounded-circle" src="../../assets/people/a7.jpg" alt="..." />
                   <i class="status status-bottom bg-danger" />
                 </span>
                 <div>
-                  <h6 class="m-0">Jaron Fitzroy</h6>
-                  <p class="help-block text-ellipsis m-0">What about summer break?</p>
+                  <h6 class="m-0">Diễm Nguyễn</h6>
+                  <p class="help-block text-ellipsis m-0">Tối có về ăn cơm không?</p>
                 </div>
               </a>
             </div>
@@ -234,16 +248,19 @@
           </footer>
         </Widget>
       </b-col>
+
+
+
       <b-col lg="4" xs="12">
         <Widget
-          title="<h6> Market <span class='fw-semi-bold'>Stats</span></h6>"
+          title="<h6>Doanh thu<span class='fw-semi-bold'></span></h6>"
           close customHeader
         >
           <div class="widget-body">
-            <h3>$720 Earned</h3>
+            <h3>Đã kiếm được 30M</h3>
             <p class="fs-mini text-muted mb mt-sm">
-              Target <span class="fw-semi-bold">$820</span> day earnings
-              is <span class="fw-semi-bold">96%</span> reached.
+              Mục tiêu <span class="fw-semi-bold"></span> trong các ngày tới
+              là <span class="fw-semi-bold">40M</span>.
             </p>
           </div>
           <div class="widget-bottom-overflow">
@@ -280,8 +297,8 @@
                       <label for="checkbox212" />
                     </div>
                   </td>
-                  <td>HP Core i7</td>
-                  <td class="text-align-right fw-semi-bold">$346.1</td>
+                  <td>Đồ uống</td>
+                  <td class="text-align-right fw-semi-bold">20M</td>
                 </tr>
                 <tr>
                   <td>
@@ -296,8 +313,8 @@
                       <label for="checkbox214" />
                     </div>
                   </td>
-                  <td>Air Pro</td>
-                  <td class="text-align-right fw-semi-bold">$533.1</td>
+                  <td>Đồ ăn</td>
+                  <td class="text-align-right fw-semi-bold">10M</td>
                 </tr>
               </tbody>
             </table>
@@ -309,17 +326,17 @@
       </b-col>
       <b-col lg="4" xs="12">
         <Widget
-          title="<h6>Calendar</h6" bodyClass="p-0"
+          title="<h6>Lịch</h6" bodyClass="p-0"
           settings close customHeader>
           <Calendar />
           <div class="list-group fs-mini">
             <a href="#" class="list-group-item text-ellipsis">
               <span class="badge badge-pill bg-primary float-right">6:45</span>
-              Weed out the flower bed
+              Ngủ dậy
             </a>
             <a href="#" class="list-group-item text-ellipsis">
               <span class="badge badge-pill badge-success float-right">9:41</span>
-              Stop world water pollution
+              Sang cơ sỏ 1 Hà Đông
             </a>
           </div>
         </Widget>
