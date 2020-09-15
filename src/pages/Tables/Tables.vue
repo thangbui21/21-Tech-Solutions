@@ -5,59 +5,13 @@
       <b-breadcrumb-item active></b-breadcrumb-item>
     </b-breadcrumb>
     <h2 class="page-title">
-      Đồ uống -
+      Đồ uống
       <span class="fw-semi-bold"></span>
     </h2>
-    <b-row>
-      <b-col>
-        <Widget
-          title="<h5>Table <span class='fw-semi-bold'>Styles</span></h5>"
-          customHeader
-          settings
-          close
-        >
-          <div class="table-resposive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th class="hidden-sm-down">Mã hàng</th>
-                  <th>Tên hàng</th>
-                  <th>Loại</th>
-                  <th class="hidden-sm-down">Giá bán</th>
-                  <th class="hidden-sm-down">Đã bán</th>
-                  <th class="hidden-sm-down">Trong kho</th>
-                  <th class="hidden-sm-down">Tình trạng</th>
-                </tr>
-              </thead>
-              <tbody v-for="(row, index) in info" v-bind:key="index">
-                <tr>
-                  <td>{{row.id}}</td>
-                  <td>{{row.productName}}</td>
-                  <td>{{row.type}}</td>
-                  <td>{{row.productPrice}}</td>
-                  <td>{{row.soldToday}}</td>
-                  <td>{{row.inStock}}</td>
-                  <td>{{row.time}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="clearfix">
-            <div class="float-right">
-              <b-button variant="default" class="mr-xs" size="sm">Send to...</b-button>
-              <b-dropdown variant="inverse" class="mr-xs" size="sm" text="Clear" right>
-                <b-dropdown-item>Clear</b-dropdown-item>
-                <b-dropdown-item>Move ...</b-dropdown-item>
-                <b-dropdown-item>Something else here</b-dropdown-item>
-                <b-dropdown-divider />
-                <b-dropdown-item>Separated link</b-dropdown-item>
-              </b-dropdown>
-            </div>
-            <p>Basic table with styled content</p>
-          </div>
-        </Widget>
-      </b-col>
-    </b-row>
+    <!--Bảng loại hàng 1 -->
+    <Widget><KeyProducts/></Widget>
+    
+
     <b-row>
       <b-col lg="6">
         <Widget
@@ -225,6 +179,7 @@
           </div>
         </Widget>
       </b-col>
+
       <b-col lg="6">
         <Widget
           title="<h5>Table <span class='fw-semi-bold'>Styles</span></h5>"
@@ -488,6 +443,7 @@
           </div>
         </Widget>
       </b-col>
+      
     </b-row>
   </div>
 </template>
@@ -497,10 +453,10 @@ import Vue from "vue";
 import Widget from "@/components/Widget/Widget";
 import Sparklines from "../../components/Sparklines/Sparklines";
 import UserService from '../../services/user.service'
-
+import KeyProducts from './KeyProducts/KeyProducts'
 export default {
   name: "Tables",
-  components: { Widget, Sparklines },
+  components: { Widget, Sparklines, KeyProducts },
   data() {
     return {
       info: null,
@@ -514,7 +470,6 @@ export default {
   //       info: null
   //   }
   // },
-
   mounted() {
     UserService
       .get("/api/products")
@@ -541,11 +496,9 @@ export default {
     },
     getRandomData() {
       const result = [];
-
       for (let i = 0; i <= 8; i += 1) {
         result.push(Math.floor(Math.random() * 20) + 1);
       }
-
       return [{ data: result }];
     },
     getRandomColor() {
