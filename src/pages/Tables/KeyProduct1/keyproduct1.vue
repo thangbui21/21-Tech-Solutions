@@ -13,12 +13,6 @@
             <table class="table table-bordered table-lg mt-lg mb-0">
                 <thead class="text-uppercase">
                     <tr>
-                        <th>
-                            <div class="abc-checkbox">
-                                <input type="checkbox" id="checkbox10" :checked="checkboxes2[0]" @change="event => checkAll(event, 'checkboxes2')" />
-                                <label for="checkbox10" />
-                            </div>
-                        </th>
                         <th>code</th>
                         <th>Product</th>
                         <th>Price</th>
@@ -30,12 +24,6 @@
                 <tbody v-for="(row, index) in info" v-bind:key="index">
                     <!--Check ở đây nhá.-->
                     <tr v-if="row.type == 'drink'">
-                        <td>
-                            <div class="abc-checkbox">
-                                <input type="checkbox" id="checkbox11" :checked="checkboxes2[1]" @change="event => changeCheck(event, 'checkboxes2', 1)" />
-                                <label for="checkbox11" />
-                            </div>
-                        </td>
                         <!-- <td >{{row.type}}</td> -->
                         <td>{{row.id}}</td>
                         <td>{{row.productName}}</td>
@@ -79,9 +67,6 @@ export default {
     data() {
         return {
             info: null,
-            checkboxes1: [false, false, false, false],
-            checkboxes2: [false, false, false, false, false, false],
-            checkboxes3: [false, false, false, false, false, false],
         };
     },
     mounted() {
@@ -90,18 +75,6 @@ export default {
         );
     },
     methods: {
-        checkAll(ev, checkbox) {
-            const checkboxArr = new Array(this[checkbox].length).fill(
-                ev.target.checked
-            );
-            Vue.set(this, checkbox, checkboxArr);
-        },
-        changeCheck(ev, checkbox, id) {
-            this[checkbox][id] = ev.target.checked;
-            if (!ev.target.checked) {
-                this[checkbox][0] = false;
-            }
-        },
         // Data lấy về được, không cần random.
         getRandomData() {
             const result = [];

@@ -1,14 +1,5 @@
 <template>
 <div class="tables-basic">
-    <!--
-    <b-row>
-        <b-col lg="12" xs="12" sm="12">
-            <Widget>
-                <KeyProducts />
-            </Widget>
-        </b-col>
-    </b-row>
-    -->
     <b-row>
         <b-col lg="12" xs="12" sm="12" md="12">
             <keyproduct1 />
@@ -23,6 +14,7 @@
             <SubProduct2 />
         </b-col>
     </b-row>
+
     <b-row>
         <b-col lg="12" xs="12" sm="12" md="12">
             <keyproduct1 />

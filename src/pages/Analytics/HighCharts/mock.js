@@ -32,6 +32,7 @@ export const chartData = {
           }
         }
       },
+      
       yAxis: {
         max: 100,
         title: {
@@ -44,6 +45,8 @@ export const chartData = {
         },
         gridLineColor: colors.gridLineColor
       },
+
+
       tooltip: {
         headerFormat: '<b>{series.name}</b><br>',
       },

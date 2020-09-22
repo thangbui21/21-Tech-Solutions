@@ -10,10 +10,6 @@
         <table class="table table-bordered table-lg mt-lg mb-0">
             <thead class="text-uppercase">
                 <tr>
-                    <th>
-                        <div class="abc-checkbox">
-                        </div>
-                    </th>
                     <th>Product</th>
                     <th class="text-right">Price</th>
                     <th class="text-center">Sales</th>
@@ -21,11 +17,6 @@
             </thead>
             <tbody v-for="(row, index) in info" v-bind:key="index">
                 <tr v-if="row.type == 'food'">
-                    <td>
-                        <div class="abc-checkbox">
-
-                        </div>
-                    </td>
                     <td>{{row.productName}}</td>
                     <td class="text-right">{{row.productPrice}}</td>
                     <td class="text-center">
