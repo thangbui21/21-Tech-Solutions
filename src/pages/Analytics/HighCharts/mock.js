@@ -32,7 +32,6 @@ export const chartData = {
           }
         }
       },
-      
       yAxis: {
         max: 100,
         title: {

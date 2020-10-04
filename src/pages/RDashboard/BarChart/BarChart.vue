@@ -34,7 +34,7 @@ export default {
       chartOptions: {
           chart: {
         type: 'bar',
-        //backgroundColor: "transparent",
+        backgroundColor: "transparent",
     },
     title: {
         text: 'Population pyramid for Germany, 2018'

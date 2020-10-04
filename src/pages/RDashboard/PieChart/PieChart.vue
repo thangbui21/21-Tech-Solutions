@@ -16,6 +16,7 @@ exportData(Highcharts);
 
 import config from "../../../config";
 const colors = config.colors;
+
 export default {
   name: "PieChart",
   components: {
@@ -25,66 +26,35 @@ export default {
     return {
       chartOptions: {
         chart: {
-          plotBackgroundColor: null,
-          plotBorderWidth: null,
-          plotShadow: false,
           type: "pie",
           backgroundColor: "transparent",
         },
+        colors: [colors.purple, colors.blue, colors.red],
         title: {
-          text: "Top 5",
+          text: "First Chart",
           style: {
             color: colors.textColor,
           },
         },
-        tooltip: {
-          pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
-        },
-        accessibility: {
-          point: {
-            valueSuffix: "%",
-          },
-        },
-        plotOptions: {
-          style: {
-            color: colors.textColor,
-          },
-          pie: {
-            allowPointSelect: true,
-            cursor: "pointer",
-            dataLabels: {
-              enabled: false,
-            },
-            showInLegend: true,
-          },
-        },
-        exporting: {
+
+        credits: {
           enabled: false,
         },
+
         series: [
           {
-            name: "Sales",
-            //colorByPoint: true,
-            colors: [colors.green, colors.blue, colors.red, colors.orange],
-            // Chỉnh data.
+            colorByPoint: true,
             data: [
-              {
-                name: "Drink",
-                y: 30,
-
-                selected: true,
-              },
-              {
-                name: "Snack",
-                y: 30,
-              },
-              {
-                name: "Book",
-                y: 40,
-              },
+              ["Apples", 5],
+              ["Pears", 9],
+              ["Oranges", 2],
             ],
           },
         ],
+
+        exporting: {
+          enabled: false, // hide button
+        },
       },
     };
   },

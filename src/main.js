@@ -16,6 +16,10 @@ import VeeValidate from 'vee-validate';
 import Vuex from 'vuex';
 Vue.use(VeeValidate);
 Vue.use(Vuex);
+Vue.use(VueApexCharts)
+
+Vue.component('apexchart', VueApexCharts)
+
 
 Vue.use(BootstrapVue);
 Vue.use(VCalendar, {

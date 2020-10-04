@@ -1,6 +1,6 @@
 <template>
   <div>
-    <apexchart type="bar" height="350" :options="chartOptions" :series="series"></apexchart>
+    <apexchart type="heatmap" height="380" :options="chartOptions" :series="series"></apexchart>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ let columnColors = [
   colors.teal,
   colors.pink,
 ];
-let lineColors = [colors.blue, colors.green, colors.orange];
+
 export default {
   name: "Chart",
   components: {
@@ -26,73 +26,89 @@ export default {
   },
   data: function () {
     return {
-
-      series: [
-        {
-          name: 'series1',
-          data: [31, 40, 28, 51, 42, 109, 100],
-        },
-      ],
-      
       chartOptions: {
-        chart: {
-          height: 350,
-          type: "bar",
-        },
-                plotOptions: {
-          bar: {
-            columnWidth: '45%',
-            distributed: false
-          }
-        },
-        colors: columnColors,
         dataLabels: {
-          enabled: false,
+          enabled: true,
         },
-        // stroke: {
-        //   curve: "smooth",
-        // },
+        colors: colors.columnColors,
         xaxis: {
-          categories: [
-            "John",
-            "Joe",
-            "Jake",
-            "Amber",
-            "Peter",
-            "Mary",
-            "David",
-            "Lily",
-          ],
-          labels: {
-            style: {
-              colors: columnColors,
-              fontSize: "14px",
-            },
-          },
-          axisBorder: {
-            show: false,
-          },
-          axisTicks: {
-            show: false,
-          },
+          type: "category",
         },
-
-        yaxis: {
-          labels: {
-            style: {
-              color: colors.textColor,
-            },
-          },
-        },
-
-        tooltip: {
-          theme: "dark",
-        },
-        grid: {
-          borderColor: colors.gridLineColor,
+        title: {
+          text: "",
         },
       },
+      series: [
+        {
+          name: "Monday",
+          data: this.generateData(7, {
+            min: 0,
+            max: 90,
+          }),
+        },
+        {
+          name: "Tuesday",
+          data: this.generateData(7, {
+            min: 0,
+            max: 90,
+          }),
+        },
+        {
+          name: "Wednesday",
+          data: this.generateData(7, {
+            min: 0,
+            max: 90,
+          }),
+        },
+        {
+          name: "Thursday",
+          data: this.generateData(7, {
+            min: 0,
+            max: 90,
+          }),
+        },
+        {
+          name: "Friday",
+          data: this.generateData(7, {
+            min: 0,
+            max: 90,
+          }),
+        },
+        {
+          name: "Saturday",
+          data: this.generateData(7, {
+            min: 0,
+            max: 90,
+          }),
+        },
+        {
+          name: "Sunday",
+          data: this.generateData(7, {
+            min: 0,
+            max: 90,
+          }),
+        },
+      ],
     };
+  },
+
+  methods: {
+    generateData(count, yrange) {
+      var i = 0;
+      var series = [];
+      while (i < count) {
+        var x = (i + 1).toString();
+        var y =
+          Math.floor(Math.random() * (yrange.max - yrange.min + 1)) +
+          yrange.min;
+        series.push({
+          x: x,
+          y: y,
+        });
+        i++;
+      }
+      return series;
+    },
   },
 };
 </script>

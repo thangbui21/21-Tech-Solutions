@@ -1,12 +1,11 @@
 <template>
   <div>
-    <highcharts :options="chartOptions"></highcharts>
+    <highcharts :options="chartOptions.mixed"></highcharts>
   </div>
 </template>
 
 <script>
 // Muốn export highchart phải đủ các thông tin như dưới.
-import { Chart } from "highcharts-vue";
 import Highcharts from "highcharts";
 import exporting from "highcharts/modules/exporting";
 import exportData from "highcharts/modules/export-data";
@@ -14,75 +13,205 @@ import exportData from "highcharts/modules/export-data";
 exporting(Highcharts);
 exportData(Highcharts);
 
+import { Chart } from "highcharts-vue";
+
 import config from "../../../config";
+
 const colors = config.colors;
+
 export default {
-  name: "PieChart",
+  name: "Charts",
   components: {
     highcharts: Chart,
   },
   data() {
     return {
       chartOptions: {
+        mixed: {
           chart: {
-        type: 'areaspline',
-        backgroundColor: "transparent",
-    },
-    title: {
-        text: 'Average fruit consumption during one week'
-    },
-    legend: {
-        layout: 'vertical',
-        align: 'left',
-        verticalAlign: 'top',
-        x: 150,
-        y: 100,
-        floating: true,
-        borderWidth: 1,
-        backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
-    },
-    xAxis: {
-        categories: [
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-            'Saturday',
-            'Sunday'
-        ],
-        plotBands: [{ // visualize the weekend
-            from: 4.5,
-            to: 6.5,
-            color: 'rgba(68, 170, 213, .2)'
-        }]
-    },
-    yAxis: {
-        title: {
-            text: 'Fruit units'
-        }
-    },
-    tooltip: {
-        shared: true,
-        valueSuffix: ' units'
-    },
-    credits: {
-        enabled: false
-    },
-    plotOptions: {
-        areaspline: {
-            fillOpacity: 0.5
-        }
-    },
-    series: [{
-        name: 'John',
-        data: [3, 4, 3, 5, 4, 10, 12]
-    }, {
-        name: 'Jane',
-        data: [1, 3, 4, 3, 3, 5, 4]
-    }]
-},
+            type: "spline",
+            //height: 350,
+            backgroundColor: "transparent",
+          },
+          exporting: {
+            enabled: false,
+          },
+          title: {
+            text: "",
+            style: {
+              color: colors.textColor,
+            },
+          },
+          credits: {
+            enabled: false,
+          },
+          xAxis: {
+            type: "datetime",
+            dateTimeLabelFormats: {
+              month: "%e. %b",
+              year: "%b",
+            },
+            labels: {
+              style: {
+                color: colors.textColor,
+              },
+            },
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              enabled: false,
+            },
+            labels: {
+              style: {
+                color: colors.textColor,
+              },
+            },
+            gridLineColor: colors.gridLineColor,
+          },
+          tooltip: {
+            headerFormat: "<b>{series.name}</b><br>",
+            pointFormat: "{point.x:%e. %b}: {point.y:.2f} m",
+          },
+          legend: {
+            enabled: true,
+            align: "center",
+            verticalAlign: "top",
+            style: {
+              color: colors.textColor,
+            },
+          },
+          plotOptions: {
+
+            series: {
+              marker: {
+                enabled: false,
+                symbol: "circle",
+              },
+            },
+          },
+          colors: [colors.red, colors.blue, colors.green],
+
+          series: [
+            {
+              name: "Đồ uống",
+              type: "areaspline",
+              style: {
+                plotOptions: 'Dash',
+              },
+              fillColor: {
+                linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                },
+                stops: [
+                    [0, Highcharts.getOptions().colors[0]],
+                    [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                ]
+                
+            },
+              data: [
+                
+                [Date.UTC(2020, 9, 1), 30],
+                [Date.UTC(2020, 9, 2), 23],
+                [Date.UTC(2020, 9, 3), 24],
+                [Date.UTC(2020, 9, 4), 11],
+                [Date.UTC(2020, 9, 5), 40],
+                [Date.UTC(2020, 9, 6), 44],
+                [Date.UTC(2020, 9, 7), 5],
+                [Date.UTC(2020, 9, 8), 33],
+                [Date.UTC(2020, 9, 9), 33],
+                [Date.UTC(2020, 9, 10), 11],
+                [Date.UTC(2020, 9, 11), 22],
+                [Date.UTC(2020, 9, 12), 33],
+                [Date.UTC(2020, 9, 13), 34],
+                [Date.UTC(2020, 9, 14), 45],
+                [Date.UTC(2020, 9, 15), 47],
+                [Date.UTC(2020, 9, 16), 60],
+                [Date.UTC(2020, 9, 17), 44],
+                [Date.UTC(2020, 9, 18), 56],
+                [Date.UTC(2020, 9, 19), 43],
+                [Date.UTC(2020, 9, 20), 32],
+                [Date.UTC(2020, 9, 21), 25],
+                [Date.UTC(2020, 9, 22), 18],
+                [Date.UTC(2020, 9, 23), 37],
+                [Date.UTC(2020, 9, 24), 66],
+                [Date.UTC(2020, 9, 25), 33],
+                [Date.UTC(2020, 9, 26), 38],
+                [Date.UTC(2020, 9, 27), 40],
+              ],
+            },
+            {
+              name: "Đồ ăn nhẹ",
+              type: "spline",
+              data: [
+                [Date.UTC(2020, 9, 1), 12],
+                [Date.UTC(2020, 9, 2), 23],
+                [Date.UTC(2020, 9, 3), 14],
+                [Date.UTC(2020, 9, 4), 27],
+                [Date.UTC(2020, 9, 5), 17],
+                [Date.UTC(2020, 9, 6), 11],
+                [Date.UTC(2020, 9, 7), 11],
+                [Date.UTC(2020, 9, 8), 10],
+                [Date.UTC(2020, 9, 9), 9],
+                [Date.UTC(2020, 9, 10), 11],
+                [Date.UTC(2020, 9, 11), 17],
+                [Date.UTC(2020, 9, 12), 16],
+                [Date.UTC(2020, 9, 13), 18],
+                [Date.UTC(2020, 9, 14), 14],
+                [Date.UTC(2020, 9, 15), 25],
+                [Date.UTC(2020, 9, 16), 32],
+                [Date.UTC(2020, 9, 17), 11],
+                [Date.UTC(2020, 9, 18), 15],
+                [Date.UTC(2020, 9, 19), 16],
+                [Date.UTC(2020, 9, 20), 18],
+                [Date.UTC(2020, 9, 21), 22],
+                [Date.UTC(2020, 9, 22), 35],
+                [Date.UTC(2020, 9, 23), 32],
+                [Date.UTC(2020, 9, 24), 11],
+                [Date.UTC(2020, 9, 25), 15],
+                [Date.UTC(2020, 9, 26), 18],
+                [Date.UTC(2020, 9, 27), 16],
+              ],
+            },
+            {
+              name: "Sách",
+              type: "spline",
+              data: [
+                [Date.UTC(2020, 9, 1), 5],
+                [Date.UTC(2020, 9, 2), 7],
+                [Date.UTC(2020, 9, 3), 12],
+                [Date.UTC(2020, 9, 4), 20],
+                [Date.UTC(2020, 9, 5), 13],
+                [Date.UTC(2020, 9, 6), 0],
+                [Date.UTC(2020, 9, 7), 2],
+                [Date.UTC(2020, 9, 8), 3],
+                [Date.UTC(2020, 9, 9), 6],
+                [Date.UTC(2020, 9, 10), 6],
+                [Date.UTC(2020, 9, 11), 2],
+                [Date.UTC(2020, 9, 12), 1],
+                [Date.UTC(2020, 9, 13), 0],
+                [Date.UTC(2020, 9, 14), 20],
+                [Date.UTC(2020, 9, 15), 10],
+                [Date.UTC(2020, 9, 16), 5],
+                [Date.UTC(2020, 9, 17), 3],
+                [Date.UTC(2020, 9, 18), 4],
+                [Date.UTC(2020, 9, 19), 1],
+                [Date.UTC(2020, 9, 20), 2],
+                [Date.UTC(2020, 9, 21), 6],
+                [Date.UTC(2020, 9, 22), 3],
+                [Date.UTC(2020, 9, 23), 3],
+                [Date.UTC(2020, 9, 24), 4],
+                [Date.UTC(2020, 9, 25), 2],
+                [Date.UTC(2020, 9, 26), 1],
+                [Date.UTC(2020, 9, 27), 0],
+              ],
+            },
+          ],
+        },
+      },
     };
   },
 };

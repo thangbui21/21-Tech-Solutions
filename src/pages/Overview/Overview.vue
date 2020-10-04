@@ -13,9 +13,11 @@
       <b-col lg="8">
         <Widget
           title="<h5>Monthly<span class='fw-semi-bold'>&nbsp; Product Sales</span></h5>"
-          close customHeader
+          close
+          customHeader
           settings
-          refresh>
+          refresh
+        >
           <Charts />
           <!-- <MixedCharts /> -->
         </Widget>
@@ -38,13 +40,23 @@
 
     <b-row>
       <b-col lg="3" xs="12">
-        <Widget title="<h6> BEST SELLING DRINK</h6>" close settings customHeader>
+        <Widget
+          title="<h6> BEST SELLING DRINK</h6>"
+          close
+          settings
+          customHeader
+        >
           <KP1 />
         </Widget>
       </b-col>
 
       <b-col lg="3" xs="12">
-        <Widget title="<h6> BEST SELLING SNACK </h6>" close settings customHeader>
+        <Widget
+          title="<h6> BEST SELLING SNACK </h6>"
+          close
+          settings
+          customHeader
+        >
           <KP2 />
         </Widget>
       </b-col>
@@ -64,7 +76,13 @@
 
     <b-row>
       <b-col lg="4" xs="12">
-        <Widget title="<h6>Lịch</h6" bodyClass="p-0" settings close customHeader>
+        <Widget
+          title="<h6>Lịch</h6"
+          bodyClass="p-0"
+          settings
+          close
+          customHeader
+        >
           <Calendar />
         </Widget>
       </b-col>
@@ -79,18 +97,11 @@
         </Widget>
       </b-col>
       <b-col lg="4" xs="12" md="4">
-        <Widget
-          title="Today Task"
-          refresh
-          close
-          customHeader
-        >
-        <TodayTask />
+        <Widget title="Today Task" refresh close customHeader>
+          <TodayTask />
         </Widget>
       </b-col>
     </b-row>
-    
-
   </div>
 </template>
 
@@ -109,6 +120,9 @@ import KP3 from "./KP3/KP3";
 import Message from "./Message/Message";
 import Charts from "./Charts/Charts";
 import TodayTask from "./TodayTask/TodayTask";
+
+
+
 export default {
   name: "Visits",
   components: {
@@ -127,93 +141,10 @@ export default {
     TodayTask,
   },
   data() {
-    return {
-      animateNumberOptions: {
-        duration: 2000,
-        easing: "easeInQuad",
-        formatValue(value) {
-          return value.toFixed(0);
-        },
-      },
-      checkedArr: [false, false, false],
-      dataCollection: null,
-    };
+    return {};
   },
-  methods: {
-    checkTable(id) {
-      let arr = [];
-      if (id === 0) {
-        const val = !this.checkedArr[0];
-        for (let i = 0; i < this.checkedArr.length; i += 1) {
-          arr[i] = val;
-        }
-      } else {
-        arr = this.checkedArr;
-        arr[id] = !arr[id];
-      }
-      if (arr[0]) {
-        let count = 1;
-        for (let i = 1; i < arr.length; i += 1) {
-          if (arr[i]) {
-            count += 1;
-          }
-        }
-        if (count !== arr.length) {
-          arr[0] = !arr[0];
-        }
-      }
-      Vue.set(this, "checkedArr", arr);
-    },
-    fillData() {
-      this.dataCollection = {
-        labels: [
-          this.getRandomInt(),
-          this.getRandomInt(),
-          this.getRandomInt(),
-          this.getRandomInt(),
-          this.getRandomInt(),
-          this.getRandomInt(),
-          this.getRandomInt(),
-        ],
-        datasets: [
-          {
-            label: "Data One",
-            backgroundColor: "#1870DC",
-            borderColor: "transparent",
-            data: [
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-            ],
-          },
-          {
-            label: "Data Two",
-            backgroundColor: "#F45722",
-            borderColor: "transparent",
-            data: [
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-            ],
-          },
-        ],
-      };
-    },
-    getRandomInt() {
-      return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
-    },
-  },
-  mounted() {
-    this.fillData();
-  },
+  methods: {},
+  mounted() {},
 };
 </script>
 

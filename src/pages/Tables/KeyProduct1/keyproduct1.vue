@@ -8,7 +8,6 @@
             <code>Đồ uống mang lại thương hiệu cho quán</code>
             <!-- <code>.table-bordered</code> to it. -->
         </p>
-        <p>{{info.type}}</p>
         <div>
             <table class="table table-bordered table-lg mt-lg mb-0">
                 <thead class="text-uppercase">
@@ -22,14 +21,14 @@
                     </tr>
                 </thead>
                 <tbody v-for="(row, index) in info" v-bind:key="index">
-                    <!--Check ở đây nhá.-->
-                    <tr v-if="row.type == 'drink'">
-                        <!-- <td >{{row.type}}</td> -->
-                        <td>{{row.id}}</td>
+                    <tr v-if="row.userId=='enterprise' && row.productType == 'Đồ uống'">
+                        <td>{{row.productCode}}</td>
                         <td>{{row.productName}}</td>
-                        <td>${{row.productPrice}}</td>
+                        <td>${{row.soldPrice}}</td>
                         <td>{{row.soldToday}}</td>
                         <td>{{row.inStock}}</td>
+                        <td>{{row.time}}</td>
+                        <td>{{row.date}}</td>
                         <td>
                             <Sparklines :data="[{ data: [50, 43, 52, 64, 40, 44, 79] }]" :options="getRandomColor()"></Sparklines>
                         </td>
@@ -37,6 +36,7 @@
                 </tbody>
             </table>
         </div>
+        
 
         <div class="float-right" style="padding-top: 20px">
             <b-button variant="default" class="mr-xs" size="sm">Send to...</b-button>

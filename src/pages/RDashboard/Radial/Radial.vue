@@ -50,6 +50,11 @@ export default {
           endAngle: 270,
         },
         xAxis: {
+          labels: {
+            style: {
+              color: colors.textColor,
+            },
+          },
           tickInterval: 1,
           labels: {
             align: "right",
@@ -63,15 +68,19 @@ export default {
           },
           lineWidth: 0,
           categories: [
-            'Norway <span class="f16"><span id="flag" class="flag no">' +
+            'Monday <span class="f16"><span id="flag" class="flag no">' +
               "</span></span>",
-            'United States <span class="f16"><span id="flag" class="flag us">' +
+            'Tuesday <span class="f16"><span id="flag" class="flag us">' +
               "</span></span>",
-            'Germany <span class="f16"><span id="flag" class="flag de">' +
+            'Wednesday <span class="f16"><span id="flag" class="flag de">' +
               "</span></span>",
-            'Canada <span class="f16"><span id="flag" class="flag ca">' +
+            'Thursday <span class="f16"><span id="flag" class="flag ca">' +
               "</span></span>",
-            'Austria <span class="f16"><span id="flag" class="flag at">' +
+            'Friday <span class="f16"><span id="flag" class="flag at">' +
+              "</span></span>",
+            'Saturday <span class="f16"><span id="flag" class="flag at">' +
+              "</span></span>",
+            'Sunday <span class="f16"><span id="flag" class="flag at">' +
               "</span></span>",
           ],
         },
@@ -102,16 +111,16 @@ export default {
         },
         series: [
           {
-            name: "Gold medals",
-            data: [132, 105, 92, 73, 64],
+            name: "Trà Chanh",
+            data: [132, 105, 92, 73, 64, 33, 21],
           },
           {
-            name: "Silver medals",
-            data: [125, 110, 86, 64, 81],
+            name: "Trà Đào",
+            data: [125, 110, 86, 64, 81, 87, 33],
           },
           {
-            name: "Bronze medals",
-            data: [111, 90, 60, 62, 87],
+            name: "Vối đá",
+            data: [111, 90, 60, 62, 87, 21, 44],
           },
         ],
       },
