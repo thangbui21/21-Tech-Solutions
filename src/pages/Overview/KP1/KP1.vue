@@ -23,24 +23,37 @@
         </span>
       </small>
       <span class="fw-semi-bold">&nbsp;17% higher</span>
-      &nbsp;than last month 
+      &nbsp;than last month {{info}}
     </p>
+  
+
   </div>
+
 </template>
 
 <script>
+import UserService from "../../../services/user.service";
+import Vue from "vue";
 export default {
     name: 'KP1',
+    data() {
+      return {
+        info: null,
+      }
+    },
     components: {
 
     },
     methods: {
-
+    getBestSelling() {
+      UserService.get("/api/best-selling").then((response) => {
+        this.info = response.data;
+      });
     },
-    data() {
-        return {
+    },
+      created() {
+    this.getBestSelling();
+  },
 
-        }
-    }
 };
 </script>

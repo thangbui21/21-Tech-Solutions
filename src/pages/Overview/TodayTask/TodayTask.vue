@@ -1,12 +1,34 @@
 <template>
   <div>
-    <b-list-group>
-      <b-list-group-item>Today Task 1</b-list-group-item>
-      <b-list-group-item>Today Task 2</b-list-group-item>
-      <b-list-group-item>Today Task 3</b-list-group-item>
-      <b-list-group-item>Today Task 4</b-list-group-item>
-      <b-list-group-item>Today Task 5</b-list-group-item>
-    </b-list-group>
+    <div class="widget-body p-0">
+      <div class="list-group list-group-lg">
+        <a class="list-group-item">
+          <span class="thumb-sm float-left mr">
+            <b-form-checkbox
+              id="checkbox"
+              v-model="task"
+              name="today-task"
+              value="accepted"
+              unchecked-value="not_accepted"
+            >
+            
+            </b-form-checkbox>
+          </span>
+          <div style="">
+            <h6 class="m-0">Today Task 1</h6>
+            <p class="help-block text-ellipsis m-0">Làm xong Market</p>
+          </div>
+          <div style="">
+            <h6 class="m-0">Today Task 1</h6>
+            <p class="help-block text-ellipsis m-0">Làm xong Market</p>
+          </div>
+          <div style="">
+            <h6 class="m-0">Today Task 1</h6>
+            <p class="help-block text-ellipsis m-0">Làm xong Market</p>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 

@@ -39,35 +39,47 @@
     </b-row>
 
     <b-row>
-      <b-col lg="3" xs="12">
-        <Widget
-          title="<h6> BEST SELLING DRINK</h6>"
-          close
-          settings
-          customHeader
-        >
-          <KP1 />
-        </Widget>
-      </b-col>
+      <b-col lg="3" xs="6" v-for="(col, index) in info" v-bind:key="index">
+        <Widget title="<h6> BEST SELLING </h6>" close settings customHeader>
+          <div>
+            <h6>{{ col.productName }}</h6>
+            <div class="stats-row">
+              <div class="stat-item">
+                <h6 class="name">Overall Values</h6>
+                <p class="value">{{ col.overallValues }}</p>
+              </div>
+              <div class="stat-item">
+                <h6 class="name">Montly</h6>
+                <p class="value">{{ col.monthly }}</p>
+              </div>
+              <div class="stat-item">
+                <h6 class="name">24h</h6>
+                <p class="value">{{ col.daily }}</p>
+              </div>
+            </div>
 
-      <b-col lg="3" xs="12">
-        <Widget
-          title="<h6> BEST SELLING SNACK </h6>"
-          close
-          settings
-          customHeader
-        >
-          <KP2 />
-        </Widget>
-      </b-col>
-      <b-col lg="3" xs="12">
-        <Widget title="<h6>BEST SELLING BOOK</h6>" close settings customHeader>
-          <KP3 />
-        </Widget>
-      </b-col>
-      <b-col lg="3" xs="12">
-        <Widget title="<h6>BEST SELLING BOOK</h6>" close settings customHeader>
-          <KP3 />
+            <div>
+              <b-progress
+              :variant="col.color"
+              :value="(col.lastMonth / col.monthly) * 100"
+              :max="100"
+              class="progress-xs"
+            />
+
+            </div>
+            <p>
+              <small>
+                <span class="circle bg-primary text-white">
+                  <i class="la la-angle-up" />
+                </span>
+              </small>
+              <span class="fw-semi-bold">&nbsp;{{Math.floor(((col.monthly - col.lastMonth)/(col.monthly))*100) }} % higher</span>
+              &nbsp;than last month
+            </p>
+            
+          </div>
+
+          
         </Widget>
       </b-col>
     </b-row>
@@ -96,12 +108,14 @@
           <Message />
         </Widget>
       </b-col>
-      <b-col lg="4" xs="12" md="4">
+      <b-col lg="4" xs="12">
         <Widget title="Today Task" refresh close customHeader>
           <TodayTask />
         </Widget>
       </b-col>
     </b-row>
+
+    <div>{{ info }}</div>
   </div>
 </template>
 
@@ -120,11 +134,10 @@ import KP3 from "./KP3/KP3";
 import Message from "./Message/Message";
 import Charts from "./Charts/Charts";
 import TodayTask from "./TodayTask/TodayTask";
-
-
+import UserService from "../../services/user.service";
 
 export default {
-  name: "Visits",
+  name: "Overview",
   components: {
     Widget,
     Map,
@@ -141,10 +154,30 @@ export default {
     TodayTask,
   },
   data() {
-    return {};
+    return {
+      info: null,
+      colors: [
+        { variant: "primary" },
+        { variant: "danger" },
+        { variant: "success" },
+        { variant: "warning" },
+      ],
+    };
   },
-  methods: {},
-  mounted() {},
+  methods: {
+    calColumnSize: function (noCol) {
+      return Math.floor(12 / noCol);
+    },
+
+    getBestSelling() {
+      UserService.get("/api/best-selling").then((response) => {
+        this.info = response.data;
+      });
+    },
+  },
+  created() {
+    this.getBestSelling();
+  },
 };
 </script>
 

@@ -89,18 +89,20 @@
     </b-row>
 
     <b-row>
-      <b-col lg="7">
+      <b-col cols="12" sm="12">
         <Widget
-          title="<h5>Density <span class='fw-semi-bold'>Heatmap</span></h5>"
+          title="<h5>Revenue <span class='fw-semi-bold'>Line Chart</span></h5>"
           close
           collapse
           settings
           customHeader
         >
-        <p>The density of items sold in the past week</p>
-          <Column />
+          <p>The revenue comes from each product category</p>
+          <ColumnChart />
         </Widget>
+
       </b-col>
+      <!--
       <b-col lg="5">
         <Widget
           title="<h5>Revenue <span class='fw-semi-bold'>Line Chart</span></h5>"
@@ -114,6 +116,7 @@
         </Widget>
 
       </b-col>
+      -->
     </b-row>
   </div>
 </template>

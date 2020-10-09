@@ -16,15 +16,27 @@
                 </tr>
             </thead>
             <tbody v-for="(row, index) in info" v-bind:key="index">
-                <tr v-if="row.type == 'food'">
+                <tr v-if="row.productType == 'Sách'">
                     <td>{{row.productName}}</td>
-                    <td class="text-right">{{row.productPrice}}</td>
+                    <td class="text-right">{{row.soldPrice}}</td>
                     <td class="text-center">
                         <Sparklines :data="getRandomData()" :options="getRandomColor()"></Sparklines>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <div style="float: right; margin-top: 15px">
+        <b-pagination
+          v-model="currentPage"
+          :total-rows="rows"
+          :per-page="perPage"
+          first-text="First"
+          prev-text="Prev"
+          next-text="Next"
+          last-text="Last"
+          aria-controls="my-table"
+        ></b-pagination>
+      </div>
     </Widget>
 </div>
 </template>
