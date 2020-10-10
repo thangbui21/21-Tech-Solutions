@@ -30,7 +30,7 @@ export default {
         },
 
         title: {
-          text: "Sales 1",
+          text: "Sales theo loại mặt hàng",
           style: {
             color: colors.textColor,
           },

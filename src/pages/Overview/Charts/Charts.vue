@@ -96,9 +96,7 @@ export default {
             {
               name: "Drink",
               type: "areaspline",
-              style: {
-                plotOptions: 'Dash',
-              },
+              
               fillColor: {
                 linearGradient: {
                     x1: 0,
@@ -145,6 +143,7 @@ export default {
             },
             {
               name: "Food",
+              //dashStyle: 'ShortDash',
               type: "spline",
               data: [
                 [Date.UTC(2020, 9, 1), 12],

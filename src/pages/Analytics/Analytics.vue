@@ -36,13 +36,13 @@
         <b-row>
           <b-col lg="8">
             <Widget
-              title="<h5>Monthly<span class='fw-semi-bold'>&nbsp; Product Sales</span></h5>"
+              title="<h5><span class='fw-semi-bold'>&nbsp;Sales </span>tháng này</h5>"
               close
               customHeader
               settings
               refresh
             >
-            <p>Growth in sales of items over the past month</p>
+            <p>Biến động về số lượng bán được của các mặt hàng </p>
               <LineChart />
             </Widget>
           </b-col>
@@ -70,7 +70,7 @@
         <b-row>
           <b-col xs="12">
             <Widget
-              title="<h5>Support <span class='fw-semi-bold'>Requests</span></h5>"
+              title="<h5>Top 5 các mặt hàng<span class='fw-semi-bold'> Bán chạy nhất</span></h5>"
               bodyClass="widget-table-overflow"
               customHeader
             >
@@ -80,11 +80,7 @@
         </b-row>
       </b-col>
     </b-row>
-    <b-row>
-    <b-col lg="12" xs="12" sm="12" md="12"><Widget><LineChart /></Widget></b-col>
-    
-    
-    </b-row>
+   
   </div>
 </template>
 

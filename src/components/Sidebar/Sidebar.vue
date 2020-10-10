@@ -38,19 +38,13 @@
           isHeader
         />
         <NavLink
-          header="Product Details"
-          link="/app/product-details"
+          header="Market"
+          link="/app/market"
           iconName="flaticon-star"
-          index="product-details"
+          index="market"
           isHeader
         />
-        <NavLink
-          header="Import your data"
-          link="/app/import-data"
-          iconName="flaticon-star"
-          index="import-data"
-          isHeader
-        />
+        
         <NavLink header="User" link="/app/user" iconName="flaticon-user" index="user" isHeader />
       </ul>
     </nav>

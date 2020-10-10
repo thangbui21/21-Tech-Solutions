@@ -1,9 +1,9 @@
 <template>
   <div class="visits-page">
     <h1 class="page-title">
-      Overview &nbsp;
+      Tổng Quan &nbsp;
       <small>
-        <small>Provide an overview of your store</small>
+        <small>Nơi cung cấp một góc nhìn chung nhất</small>
       </small>
     </h1>
 
@@ -12,7 +12,7 @@
     <b-row>
       <b-col lg="8">
         <Widget
-          title="<h5>Monthly<span class='fw-semi-bold'>&nbsp; Product Sales</span></h5>"
+          title="<h5><span class='fw-semi-bold'>&nbsp; Sales</span> hàng tháng</h5>"
           close
           customHeader
           settings
@@ -27,7 +27,7 @@
       <b-col lg="4">
         <Widget
           class="bg-transparent"
-          title="<h5>Sales Plan for this week<span class='fw-semi-bold'>&nbsp;</span></h5>"
+          title="<h5>Kế hoạch bán hàng trong tuần<span class='fw-semi-bold'>&nbsp;</span></h5>"
           settings
           refresh
           close
@@ -40,16 +40,16 @@
 
     <b-row>
       <b-col lg="3" xs="6" v-for="(col, index) in info" v-bind:key="index">
-        <Widget title="<h6> BEST SELLING </h6>" close settings customHeader>
+        <Widget title="<h6> BÁN CHẠY </h6>" close settings customHeader>
           <div>
             <h6>{{ col.productName }}</h6>
             <div class="stats-row">
               <div class="stat-item">
-                <h6 class="name">Overall Values</h6>
+                <h6 class="name">Tổng số</h6>
                 <p class="value">{{ col.overallValues }}</p>
               </div>
               <div class="stat-item">
-                <h6 class="name">Montly</h6>
+                <h6 class="name">Hàng tháng</h6>
                 <p class="value">{{ col.monthly }}</p>
               </div>
               <div class="stat-item">
@@ -73,8 +73,8 @@
                   <i class="la la-angle-up" />
                 </span>
               </small>
-              <span class="fw-semi-bold">&nbsp;{{Math.floor(((col.monthly - col.lastMonth)/(col.monthly))*100) }} % higher</span>
-              &nbsp;than last month
+              <span class="fw-semi-bold"> Cao hơn &nbsp;{{Math.floor(((col.monthly - col.lastMonth)/(col.monthly))*100) }} % </span>
+              &nbsp;so với tháng trước
             </p>
             
           </div>
@@ -100,7 +100,7 @@
       </b-col>
       <b-col lg="4" xs="12">
         <Widget
-          title="<h6><span class='badge badge-danger'>New</span>&nbsp&nbsp  Message</h6>"
+          title="<h6><span class='badge badge-danger'>New</span>&nbsp&nbsp Tin nhắn</h6>"
           refresh
           close
           customHeader
@@ -109,7 +109,7 @@
         </Widget>
       </b-col>
       <b-col lg="4" xs="12">
-        <Widget title="Today Task" refresh close customHeader>
+        <Widget title="Mục tiêu hôm nay" refresh close customHeader>
           <TodayTask />
         </Widget>
       </b-col>

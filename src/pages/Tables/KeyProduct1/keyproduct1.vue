@@ -7,7 +7,7 @@
       close
     >
       <h3>
-        <span class="fw-semi-bold">Drink</span>
+        <span class="fw-semi-bold">Đồ uống</span>
       </h3>
       <p>
         <code>Đồ uống mang lại thương hiệu cho quán</code>
@@ -19,12 +19,12 @@
         <table class="table table-bordered table-lg mt-lg mb-0">
           <thead class="text-uppercase">
             <tr>
-              <th>code</th>
-              <th>Product</th>
-              <th>Price</th>
-              <th>Sold</th>
-              <th>In stock</th>
-              <th>Date</th>
+              <th>Mã</th>
+              <th>Sản phẩm</th>
+              <th>Giá bán</th>
+              <th>Đã bán</th>
+              <th>Trong kho</th>
+              <th>Ngày</th>
               <th>Sales</th>
             </tr>
           </thead>

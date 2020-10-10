@@ -2,7 +2,7 @@
 <div>
     <Widget title="<h5> <span class='fw-semi-bold'></span></h5>" customHeader ettings close>
         <h3>
-            <span class="fw-semi-bold"> Food</span>
+            <span class="fw-semi-bold"> Đồ ăn</span>
         </h3>
         <p>
             <code>Những món ăn bán chạy nhất quán.</code>
@@ -12,8 +12,8 @@
         <table class="table table-bordered table-lg mt-lg mb-0">
             <thead class="text-uppercase">
                 <tr>
-                    <th>Product</th>
-                    <th class="text-right">Price</th>
+                    <th>Sản phẩm</th>
+                    <th class="text-right">Giá</th>
                     <th class="text-center">Sales</th>
                 </tr>
             </thead>

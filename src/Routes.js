@@ -8,7 +8,7 @@ import Dashboard from '@/pages/Overview/Overview';
 import Login from '@/pages/Login/Login';
 import ErrorPage from '@/pages/Error/Error';
 import Analytics from '@/pages/Analytics/Analytics';
-import ProductDetails from '@/pages/ProductDetails/ProductDetails';
+import Market from '@/pages/Market/Market';
 import User from '@/pages/User/User';
 import ImportYourData from '@/pages/ImportYourData/ImportYourData';
 import RDashboard from '@/pages/RDashboard/RDashboard';
@@ -54,9 +54,9 @@ export default new Router({
                     component: Analytics,
                 },
                 {
-                    path: 'product-details',
-                    name: 'ProductDetails',
-                    component: ProductDetails,
+                    path: 'market',
+                    name: 'Market',
+                    component: Market,
                 },
                 
                 {
@@ -64,11 +64,7 @@ export default new Router({
                     name: 'User',
                     component: User,
                 },
-                {
-                    path: 'import-data',
-                    name: 'ImportYourData',
-                    component: ImportYourData,
-                },
+                
             ],
         },
         {
