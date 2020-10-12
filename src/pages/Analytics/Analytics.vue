@@ -5,7 +5,7 @@
       <b-col lg="12" xs="12">
         <b-row>
           <!-- Total product -->
-          <b-col lg="4" sm="4" xs="12">
+          <b-col lg="4" xs="6">
             <div class="pb-xlg h-100">
               <Widget class="h-100 mb-0" title="THỐNG KÊ" close>
                 <TotalProduct />
@@ -14,7 +14,7 @@
           </b-col>
 
           <!-- Nhập hàng vào kho-->
-          <b-col lg="4" sm="4" xs="12">
+          <b-col lg="4"  xs="6">
             <div class="pb-xlg h-100">
               <Widget class="h-100 mb-0" title="<h6>HÀNG NHẬP KHO</h6>" close settings customHeader>
                 <Warehouse />
@@ -23,7 +23,7 @@
           </b-col>
 
           <!--Tổng hàng đã bán-->
-          <b-col lg="4" sm="4" xs="12">
+          <b-col lg="4" xs="6">
             <div class="pb-xlg h-100">
               <Widget class="h-100 mb-0" title="<h6>HÀNG BÁN RA</h6>" close settings customHeader>
                 <TotalSold />
@@ -48,12 +48,14 @@
           </b-col>
           <b-col lg="4">
             <Widget title="Doanh thu từ các mặt hàng" close>
+            <p>Số tiền đóng góp trên tổng số</p>
               <Breakdown />
             </Widget>
           </b-col>
         </b-row>
 
         <!--Chi tiết mặt hàng-->
+        <!--Trả API về, không dùng file mock -->
         <b-row>
           <b-col xs="12" lg="6" xl="4" v-for="stat in mock.bigStat" :key="stat.id">
             <BigStat
@@ -89,13 +91,9 @@ import Widget from "@/components/Widget/Widget";
 import BigStat from "./BigStat/BigStat";
 import mock from "./mock";
 import Calendar from "../Overview/components/Calendar/Calendar";
-import ApexCharts from "./ApexCharts/ApexCharts";
-import MixedApexCharts from "./ApexCharts/MixedApexCharts";
-import MixedLineColumn from "./ApexCharts/MixedLineColumn";
 import LineChart from "./HighCharts/LineChart";
 import TotalProduct from "./TotalProduct/TotalProduct";
 import Breakdown from "./Breakdown/Breakdown";
-import Target from "./Target/Target";
 import Warehouse from "./Warehouse/Warehouse";
 import TotalSold from "./TotalSold/TotalSold";
 import Table from "./Table/Table";
@@ -108,13 +106,9 @@ export default {
     Table,
     TotalSold,
     Warehouse,
-    Target,
     Breakdown,
     TotalProduct,
     LineChart,
-    MixedLineColumn,
-    MixedApexCharts,
-    ApexCharts,
     Calendar,
     Widget,
     BigStat,

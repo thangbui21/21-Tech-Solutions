@@ -1,31 +1,82 @@
 <template>
   <div>
-    <apexchart type="donut" height="380" :options="chartOptions" :series="series"></apexchart>
+    <highcharts :options="chartOptions"></highcharts>
   </div>
 </template>
 
 <script>
+// Muốn export highchart phải đủ các thông tin như dưới.
+import { Chart } from "highcharts-vue";
+import Highcharts from "highcharts";
+import exporting from "highcharts/modules/exporting";
+import exportData from "highcharts/modules/export-data";
+
+exporting(Highcharts);
+exportData(Highcharts);
+
+import config from "../../../config";
+const colors = config.colors;
 export default {
-  name: "Breakdown",
+  name: "PieChart",
+  components: {
+    highcharts: Chart,
+  },
   data() {
     return {
-      // Tính tổng rồi chia %
-      series: [44, 55, 41, 17, 15],
       chartOptions: {
-        labels: ['Trà', "Nước Ngọt", "Cà Phê", "Đồ ăn vặt", "Hoa quả"],
         chart: {
-          type: "donut",
+          renderTo: "chart",
+          height: 350,
+          type: "pie",
+          backgroundColor: "transparent",
         },
-        responsive: [
+        credits: {
+          enabled: false,
+        },
+        title: {
+          text: "",
+        },
+        plotOptions: {
+          pie: {
+            shadow: false,
+            borderWidth: 0,
+          },
+        },
+        exporting: {
+          enabled: false,
+        },
+        tooltip: {
+          enabled: false,
+        },
+        series: [
           {
-            breakpoint: 480,
-            options: {
-              chart: {
-                width: 200,
+            data: [
+              {
+                name: "Trà",
+                y: 23,
               },
-              legend: {
-                position: "bottom",
+              {
+                name: "Nước ngọt",
+                y: 8,
               },
+              {
+                name: "Cà phê",
+                y: 11,
+              },
+              {
+                name: "Đồ ăn vặt",
+                y: 11,
+              },
+              {
+                name: "Hoa quả",
+                y: 47,
+              },
+            ],
+            size: "100%",
+            innerSize: "67%",
+            showInLegend: true,
+            dataLabels: {
+              enabled: false,
             },
           },
         ],

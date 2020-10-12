@@ -10,7 +10,6 @@ import ErrorPage from '@/pages/Error/Error';
 import Analytics from '@/pages/Analytics/Analytics';
 import Market from '@/pages/Market/Market';
 import User from '@/pages/User/User';
-import ImportYourData from '@/pages/ImportYourData/ImportYourData';
 import RDashboard from '@/pages/RDashboard/RDashboard';
 Vue.use(Router);
 

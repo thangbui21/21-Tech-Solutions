@@ -1,5 +1,7 @@
 <template>
   <div>
+    <div><p>Hola</p></div>
+    <div><p>Hola</p></div>
     <div class="d-flex justify-content-between align-items-center mb-lg" >
       <h2>{{totalProduct}}</h2>
       <i class="la la-arrow-right text-primary la-lg rotate-315" />

@@ -13,10 +13,17 @@
         <code>Đồ uống mang lại thương hiệu cho quán</code>
         <!-- <code>.table-bordered</code> to it. -->
       </p>
-      
+
+      <!--Làm sao khi chuyển page Table không bị scale. Cố định nó lại-->
       <div>
-      <!--Gọi API của các loại mặt hàng rồi bind lên. Như trang overview. -->
-        <table class="table table-bordered table-lg mt-lg mb-0">
+        <!--Gọi API của các loại mặt hàng rồi bind lên. Như trang overview. -->
+        <table
+          id="key"
+          :items="info"
+          :per-page="perPage"
+          :current-page="currentPage"
+          class="table table-bordered table-lg mt-lg mb-0"
+        >
           <thead class="text-uppercase">
             <tr>
               <th>Mã</th>
@@ -29,7 +36,7 @@
             </tr>
           </thead>
           <tbody v-for="(row, index) in info" v-bind:key="index">
-            <tr v-if="row.userId == 'guest' && row.productType == 'Đồ ăn'">
+            <tr v-if="row.userId == 'guest'">
               <td>{{ row.productCode }}</td>
               <td>{{ row.productName }}</td>
               <td>${{ row.soldPrice }}</td>
@@ -50,16 +57,16 @@
       <div style="float: right; margin-top: 15px">
         <b-pagination
           v-model="currentPage"
-          :total-rows="rows"
+          :total-rows="info.length"
           :per-page="perPage"
-                first-text="First"
-      prev-text="Prev"
-      next-text="Next"
-      last-text="Last"
-          aria-controls="my-table"
+          first-text="First"
+          prev-text="Prev"
+          next-text="Next"
+          last-text="Last"
+          aria-controls="key"
         ></b-pagination>
       </div>
-    <!--
+      <!--
       <div class="float-right" style="padding-top: 20px">
         <b-button variant="default" class="mr-xs" size="sm"
           >Send to...</b-button
@@ -99,10 +106,8 @@ export default {
   data() {
     return {
       info: null,
-
       perPage: 3,
-        currentPage: 1,
-        
+      currentPage: 1,
     };
   },
   mounted() {
@@ -131,12 +136,11 @@ export default {
     },
   },
 
-    //     computed: {
-    //   rows() {
-    //     return this.items.length
-    //   }
-    // }
-
+  // computed: {
+  //   rows() {
+  //     return this.info.length;
+  //   },
+  // },
 };
 </script>
 

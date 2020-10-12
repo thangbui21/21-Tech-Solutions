@@ -28,7 +28,6 @@
 import Vue from "vue";
 import Widget from "@/components/Widget/Widget";
 import Sparklines from "../../components/Sparklines/Sparklines";
-import KeyProducts from "./KeyProducts/KeyProducts";
 import SubProduct1 from "./SubProduct1/SubProduct1";
 import SubProduct2 from "./SubProduct2/SubProduct2";
 import keyproduct1 from "./KeyProduct1/keyproduct1";
@@ -37,7 +36,6 @@ export default {
     name: "Tables",
     components: {
         Widget,
-        KeyProducts,
         SubProduct1,
         SubProduct2,
         keyproduct1

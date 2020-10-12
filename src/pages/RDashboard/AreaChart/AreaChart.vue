@@ -74,6 +74,12 @@ export default {
             pointFormat: "{point.x:%e. %b}: {point.y:.2f} m",
           },
           legend: {
+                      symbolHeight: 11,
+          symbolWidth: 11,
+          symbolRadius: 0,
+                    itemStyle: {
+            color: colors.textColor,
+          },
             enabled: true,
             align: "center",
             verticalAlign: "top",

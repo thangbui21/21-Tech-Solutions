@@ -9,13 +9,10 @@
 import Highcharts from "highcharts";
 import exporting from "highcharts/modules/exporting";
 import exportData from "highcharts/modules/export-data";
-
+import { Chart } from "highcharts-vue";
+import config from "../../../config";
 exporting(Highcharts);
 exportData(Highcharts);
-
-import { Chart } from "highcharts-vue";
-
-import config from "../../../config";
 
 const colors = config.colors;
 
@@ -30,21 +27,25 @@ export default {
         mixed: {
           chart: {
             type: "spline",
-            //height: 350,
+            height: 340,
             backgroundColor: "transparent",
           },
+          
           exporting: {
             enabled: false,
           },
+          
           title: {
             text: "",
             style: {
               color: colors.textColor,
             },
           },
+          
           credits: {
             enabled: false,
           },
+          
           xAxis: {
             type: "datetime",
             dateTimeLabelFormats: {
@@ -57,6 +58,7 @@ export default {
               },
             },
           },
+          
           yAxis: {
             min: 0,
             title: {
@@ -69,20 +71,28 @@ export default {
             },
             gridLineColor: colors.gridLineColor,
           },
+          
           tooltip: {
             headerFormat: "<b>{series.name}</b><br>",
             pointFormat: "{point.x:%e. %b}: {point.y:.2f} m",
           },
+
           legend: {
             enabled: true,
             align: "center",
+
+            symbolHeight: 11,
+            symbolWidth: 11,
+            symbolRadius: 0,
+
             verticalAlign: "top",
-            style: {
+            
+            itemStyle: {
               color: colors.textColor,
             },
           },
-          plotOptions: {
 
+          plotOptions: {
             series: {
               marker: {
                 enabled: false,
@@ -90,28 +100,33 @@ export default {
               },
             },
           },
-          colors: [colors.red, colors.blue, colors.green],
+          
+          colors: [colors.red, colors.green, colors.blue],
 
           series: [
             {
-              name: "Drink",
+              name: "Đồ uống",
               type: "areaspline",
-              
+
               fillColor: {
                 linearGradient: {
-                    x1: 0,
-                    y1: 0,
-                    x2: 0,
-                    y2: 1
+                  x1: 0,
+                  y1: 0,
+                  x2: 0,
+                  y2: 1,
                 },
                 stops: [
-                    [0, Highcharts.getOptions().colors[0]],
-                    [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                ]
-                
-            },
+                  [0, Highcharts.getOptions().colors[0]],
+                  [
+                    1,
+                    Highcharts.color(Highcharts.getOptions().colors[0])
+                      .setOpacity(0)
+                      .get("rgba"),
+                  ],
+                ],
+              },
+              
               data: [
-                
                 [Date.UTC(2020, 9, 1), 30],
                 [Date.UTC(2020, 9, 2), 23],
                 [Date.UTC(2020, 9, 3), 24],
@@ -142,7 +157,7 @@ export default {
               ],
             },
             {
-              name: "Food",
+              name: "Đồ ăn",
               //dashStyle: 'ShortDash',
               type: "spline",
               data: [
@@ -176,7 +191,7 @@ export default {
               ],
             },
             {
-              name: "Winter 2016-2017",
+              name: "Sách",
               type: "spline",
               data: [
                 [Date.UTC(2020, 9, 1), 5],

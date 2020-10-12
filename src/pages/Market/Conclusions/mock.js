@@ -1,48 +1,4 @@
 export default {
-    // Chỉnh màu lại sao cho chuẩn.
-    bigStat: [
-      {
-        product: 'Trà Chanh',
-        total: '646',
-        color: 'primary',
-        registrations: {
-          value: 174,
-          profit: true,
-        },
-        bounce: {
-          value: 1700,
-          profit: true,
-        },
-      },
-      {
-        product: 'Trà Đào',
-        total: '754',
-        color: 'danger',
-        registrations: {
-          value: 30,
-          profit: false,
-        },
-        bounce: {
-          value: 1000,
-          profit: true,
-        },
-      },
-      {
-        product: 'Chanh Leo',
-        total: '200',
-        color: 'info',
-        registrations: {
-          value: 34,
-          profit: true,
-        },
-        bounce: {
-          value: 1300,
-          profit: true,
-        },
-      },
-    ],
-
-
     table: [
       {
         id: 0,

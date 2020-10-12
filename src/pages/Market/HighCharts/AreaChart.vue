@@ -29,17 +29,43 @@ export default {
           backgroundColor: "transparent",
         },
         accessibility: {
-          description: "Hola",
+          description: "Area",
         },
         title: {
-          text: "US and USSR nuclear stockpiles",
+          style: {
+            color: colors.textColor,
+          },
+          // Xem xét có cần thiết không rồi hãy cho vào.
+          text: "",
         },
         subtitle: {
-          text: "Sub title",
+          text: "",
         },
+        exporting: {
+          enabled: false,
+        },
+        credits: {
+          enabled: false,
+        },
+        legend: {
+          // Chỉnh legend thành ô hình vuông
+          symbolHeight: 11,
+          symbolWidth: 11,
+          symbolRadius: 0,
+          // Chỉnh màu cho legend
+          itemStyle: {
+            color: colors.textColor,
+          },
+          //borderWidth: 2,
+          //backgroundColor: colors.textColor,
+        },
+
         xAxis: {
           allowDecimals: false,
           labels: {
+            style: {
+              color: colors.textColor,
+            },
             formatter: function () {
               return this.value; // clean, unformatted number for year
             },
@@ -50,13 +76,17 @@ export default {
         },
         yAxis: {
           title: {
-            text: "Nuclear weapon states",
+            text: "Số lượng bán",
           },
           labels: {
             // formatter: function () {
             //     return this.value / 1000 + 'k';
             // }
+            style: {
+              color: colors.textColor,
+            },
           },
+          gridLineColor: colors.gridLineColor,
         },
         tooltip: {
           pointFormat:
@@ -80,112 +110,121 @@ export default {
         series: [
           {
             name: "USA",
-            data: [10, 16, 14, 12, 18, 24, 22, 20],
+            data: [
+              10,
+              16,
+              14,
+              12,
+              18,
+              24,
+              22,
+              20,
+              21,
+              12,
+              20,
+              18,
+              16,
+              20,
+              12,
+              10,
+              10,
+              18,
+              24,
+              21,
+              12,
+              20,
+              18,
+              16,
+              20,
+              12,
+              10,
+              10,
+              16,
+              14,
+              12,
+              18,
+              24,
+              22,
+              20,
+              11,
+              18,
+              24,
+              22,
+              20,
+              21,
+              12,
+              20,
+              18,
+              16,
+              11,
+              22,
+              20,
+              11,
+              18,
+              24,
+              22,
+              20,
+              21,
+            ],
           },
           {
             name: "USSR/Russia",
-            data: [21, 12, 20, 18, 16, 20, 12, 10],
-          },
-        ],
-      },
-      chartOptions1: {
-        colors: ["#FFD700", "#C0C0C0", "#CD7F32"],
-        credits: {
-          enabled: false,
-        },
-        // In ra chart
-        exporting: {
-          enabled: false,
-        },
-        chart: {
-          type: "column",
-          inverted: true,
-          polar: true,
-          backgroundColor: "transparent",
-        },
-        title: {
-          text: "",
-        },
-        tooltip: {
-          outside: true,
-        },
-        pane: {
-          size: "85%",
-          innerSize: "20%",
-          endAngle: 270,
-        },
-        xAxis: {
-          labels: {
-            style: {
-              color: colors.textColor,
-            },
-          },
-          tickInterval: 1,
-          labels: {
-            align: "right",
-            useHTML: true,
-            allowOverlap: true,
-            step: 1,
-            y: 3,
-            style: {
-              fontSize: "13px",
-            },
-          },
-          lineWidth: 0,
-          categories: [
-            'Monday <span class="f16"><span id="flag" class="flag no">' +
-              "</span></span>",
-            'Tuesday <span class="f16"><span id="flag" class="flag us">' +
-              "</span></span>",
-            'Wednesday <span class="f16"><span id="flag" class="flag de">' +
-              "</span></span>",
-            'Thursday <span class="f16"><span id="flag" class="flag ca">' +
-              "</span></span>",
-            'Friday <span class="f16"><span id="flag" class="flag at">' +
-              "</span></span>",
-            'Saturday <span class="f16"><span id="flag" class="flag at">' +
-              "</span></span>",
-            'Sunday <span class="f16"><span id="flag" class="flag at">' +
-              "</span></span>",
-          ],
-        },
-        yAxis: {
-          labels: {
-            style: {
-              color: colors.textColor,
-            },
-          },
-          crosshair: {
-            enabled: true,
-            color: "#333",
-          },
-          gridLineColor: colors.gridLineColor,
-          lineWidth: 0,
-          tickInterval: 25,
-          reversedStacks: false,
-          endOnTick: true,
-          showLastLabel: true,
-        },
-        plotOptions: {
-          column: {
-            stacking: "normal",
-            borderWidth: 0,
-            pointPadding: 0,
-            groupPadding: 0.15,
-          },
-        },
-        series: [
-          {
-            name: "Trà Chanh",
-            data: [132, 105, 92, 73, 64, 33, 21],
-          },
-          {
-            name: "Trà Đào",
-            data: [125, 110, 86, 64, 81, 87, 33],
-          },
-          {
-            name: "Vối đá",
-            data: [111, 90, 60, 62, 87, 21, 44],
+            data: [
+              21,
+              12,
+              20,
+              18,
+              16,
+              20,
+              12,
+              10,
+              10,
+              16,
+              14,
+              12,
+              18,
+              24,
+              22,
+              20,
+              21,
+              12,
+              20,
+              18,
+              16,
+              20,
+              12,
+              10,
+              10,
+              16,
+              14,
+              12,
+              18,
+              24,
+              22,
+              20,
+              11,
+              18,
+              24,
+              22,
+              20,
+              21,
+              12,
+              20,
+              18,
+              16,
+              11,
+              11,
+              18,
+              24,
+              22,
+              20,
+              21,
+              12,
+              20,
+              18,
+              16,
+              11,
+            ],
           },
         ],
       },

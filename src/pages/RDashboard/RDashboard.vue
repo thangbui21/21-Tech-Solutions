@@ -10,7 +10,7 @@
           customHeader
         >
           <p>Biểu diễn các loại mặt hàng theo tỉ lệ %</p>
-          <!-- <PieChart /> -->
+          <PieChart />
           <Pie />
         </Widget>
       </b-col>
@@ -28,39 +28,8 @@
         </Widget>
       </b-col>
     </b-row>
-    <!--
-    <b-row>
-      <b-col lg="10">
-        <Widget>
-          <LineChart />
-        </Widget>
-      </b-col>
-    </b-row>
-    -->
-
-    <!--
     <b-row>
       <b-col lg="8">
-        <Widget>
-          <div>
-            <p>Select product type to see details</p>
-          </div>
-
-          <div style="float-right">
-            <b-dropdown id="dropdown-1" variant="default" text="Select product type" class="m-md-2">
-              <b-dropdown-item>First Action</b-dropdown-item>
-              <b-dropdown-item>Second Action</b-dropdown-item>
-              <b-dropdown-item>Third Action</b-dropdown-item>
-            </b-dropdown>
-          </div>
-          
-        </Widget>
-      </b-col>
-    </b-row>
-    -->
-    <b-row>
-      <b-col lg="8">
-            
         <Widget
           title="<h5><span class='fw-semi-bold'>Sales</span> trong tuần</h5>"
           close
@@ -68,10 +37,9 @@
           settings
           customHeader
         >
-        <p>Số lượng mặt hàng đã bán trong tuần</p>
+          <p>Số lượng mặt hàng đã bán trong tuần</p>
           <Radial />
         </Widget>
-
       </b-col>
 
       <b-col lg="4">
@@ -100,23 +68,8 @@
           <p>Tương quan doanh thu các tháng qua của từng loại sản phẩm</p>
           <ColumnChart />
         </Widget>
-
       </b-col>
-      <!--
-      <b-col lg="5">
-        <Widget
-          title="<h5>Revenue <span class='fw-semi-bold'>Line Chart</span></h5>"
-          close
-          collapse
-          settings
-          customHeader
-        >
-          <p>The revenue comes from each product category</p>
-          <HighColumn />
-        </Widget>
 
-      </b-col>
-      -->
     </b-row>
   </div>
 </template>
@@ -125,33 +78,20 @@
 import Widget from "@/components/Widget/Widget";
 import PieChart from "./PieChart/PieChart";
 import ColumnChart from "./ColumnChart/ColumnChart";
-import Mixed from "./Mixed/Mixed";
-import LineChart from "./LineChart/LineChart";
 import AreaChart from "./AreaChart/AreaChart";
-import BarChart from "./BarChart/BarChart";
-import HeatMap from "./HeatMap/HeatMap";
-import Column from "./Apex/Column/Column";
 import Radial from "./Radial/Radial";
 import HighColumn from "./HighColumn/HighColumn";
-
 import Target from "./Apex/Target/Target";
-import Pie from "./Apex/Pie/Pie";
 
 export default {
   components: {
     PieChart,
     Widget,
     ColumnChart,
-    Mixed,
-    LineChart,
+    Target,
     AreaChart,
-    BarChart,
-    HeatMap,
-    Column,
     Radial,
     HighColumn,
-    Target,
-    Pie,
   },
 };
 </script>

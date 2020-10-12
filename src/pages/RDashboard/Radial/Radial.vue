@@ -44,6 +44,19 @@ export default {
         tooltip: {
           outside: true,
         },
+        legend: {
+          // Chỉnh legend thành ô hình vuông
+          symbolHeight: 11,
+          symbolWidth: 11,
+          symbolRadius: 0,
+          // Chỉnh màu cho legend
+          itemStyle: {
+            color: colors.textColor,
+          },
+          //borderWidth: 2,
+          //backgroundColor: colors.textColor,
+        },
+
         pane: {
           size: "85%",
           innerSize: "20%",

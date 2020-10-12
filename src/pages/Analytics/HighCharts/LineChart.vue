@@ -30,7 +30,7 @@ export default {
         mixed: {
           chart: {
             type: "spline",
-            //height: 350,
+            height: 350,
             backgroundColor: "transparent",
           },
           exporting: {
@@ -82,7 +82,6 @@ export default {
             },
           },
           plotOptions: {
-
             series: {
               marker: {
                 enabled: false,
@@ -97,23 +96,26 @@ export default {
               name: "Đồ uống",
               type: "areaspline",
               style: {
-                plotOptions: 'Dash',
+                plotOptions: "Dash",
               },
               fillColor: {
                 linearGradient: {
-                    x1: 0,
-                    y1: 0,
-                    x2: 0,
-                    y2: 1
+                  x1: 0,
+                  y1: 0,
+                  x2: 0,
+                  y2: 1,
                 },
                 stops: [
-                    [0, Highcharts.getOptions().colors[0]],
-                    [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                ]
-                
-            },
+                  [0, Highcharts.getOptions().colors[0]],
+                  [
+                    1,
+                    Highcharts.color(Highcharts.getOptions().colors[0])
+                      .setOpacity(0)
+                      .get("rgba"),
+                  ],
+                ],
+              },
               data: [
-                
                 [Date.UTC(2020, 9, 1), 30],
                 [Date.UTC(2020, 9, 2), 23],
                 [Date.UTC(2020, 9, 3), 24],
@@ -212,8 +214,6 @@ export default {
           ],
         },
       },
-    
-    
     };
   },
 };

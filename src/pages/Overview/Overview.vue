@@ -12,12 +12,13 @@
     <b-row>
       <b-col lg="8">
         <Widget
-          title="<h5><span class='fw-semi-bold'>&nbsp; Sales</span> hàng tháng</h5>"
+          title="<h5><span class='fw-semi-bold'>Sales</span> hàng tháng</h5>"
           close
           customHeader
           settings
           refresh
         >
+          <p>Những loại mặt hàng chính trong cửa hàng</p>
           <Charts />
           <!-- <MixedCharts /> -->
         </Widget>
@@ -33,7 +34,7 @@
           close
           customHeader
         >
-          <SalesPlan />
+          <Plan />
         </Widget>
       </b-col>
     </b-row>
@@ -60,26 +61,45 @@
 
             <div>
               <b-progress
-              :variant="col.color"
-              :value="(col.lastMonth / col.monthly) * 100"
-              :max="100"
-              class="progress-xs"
-            />
-
+                :variant="col.color"
+                :value="(col.lastMonth / col.monthly) * 100"
+                :max="100"
+                class="progress-xs"
+              />
             </div>
-            <p>
+            <p v-if="col.monthly - col.lastMonth > 0">
               <small>
                 <span class="circle bg-primary text-white">
                   <i class="la la-angle-up" />
                 </span>
               </small>
-              <span class="fw-semi-bold"> Cao hơn &nbsp;{{Math.floor(((col.monthly - col.lastMonth)/(col.monthly))*100) }} % </span>
+              <span class="fw-semi-bold">
+                Cao hơn &nbsp;{{
+                  Math.floor(
+                    ((col.monthly - col.lastMonth) / col.monthly) * 100
+                  )
+                }}
+                %
+              </span>
               &nbsp;so với tháng trước
             </p>
-            
-          </div>
 
-          
+            <p v-else>
+              <small>
+                <span class="circle bg-primary text-white">
+                  <i class="la la-angle-down" />
+                </span>
+              </small>
+              <span class="fw-semi-bold">
+                Thấp hơn&nbsp;{{
+                  Math.floor(
+                    ((col.monthly - col.lastMonth) / col.monthly) * 100
+                  ) * -1
+                }}%
+              </span>
+              &nbsp;so với tháng trước
+            </p>
+          </div>
         </Widget>
       </b-col>
     </b-row>
@@ -109,28 +129,27 @@
         </Widget>
       </b-col>
       <b-col lg="4" xs="12">
-        <Widget title="Mục tiêu hôm nay" refresh close customHeader>
+        <Widget
+          title="<h6><span class='badge badge-success'>Today task</span>&nbsp&nbsp Mục tiêu hôm nay</h6>"
+          refresh
+          close
+          customHeader
+        >
           <TodayTask />
         </Widget>
       </b-col>
     </b-row>
 
-    <div>{{ info }}</div>
+    <!-- <div>{{ info }}</div> -->
   </div>
 </template>
 
 <script>
 import Vue from "vue";
 import Widget from "@/components/Widget/Widget";
-import Map from "./components/Map/Map";
 import Calendar from "./components/Calendar/Calendar";
-import AreaChart from "./components/AreaChart/AreaChart";
 import AnimatedNumber from "animated-number-vue";
-import MixedCharts from "./MixedCharts/MixedCharts";
-import SalesPlan from "./SalesPlan/SalesPlan";
-import KP1 from "./KP1/KP1";
-import KP2 from "./KP2/KP2";
-import KP3 from "./KP3/KP3";
+import Plan from "./Plan/Plan";
 import Message from "./Message/Message";
 import Charts from "./Charts/Charts";
 import TodayTask from "./TodayTask/TodayTask";
@@ -140,15 +159,9 @@ export default {
   name: "Overview",
   components: {
     Widget,
-    Map,
     Calendar,
-    AreaChart,
     AnimatedNumber,
-    MixedCharts,
-    SalesPlan,
-    KP1,
-    KP2,
-    KP3,
+    Plan,
     Message,
     Charts,
     TodayTask,

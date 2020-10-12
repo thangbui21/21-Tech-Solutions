@@ -35,9 +35,27 @@ export default {
             color: colors.textColor,
           },
         },
-        
+
         subtitle: {
           text: "",
+        },
+        exporting: {
+          enabled: false,
+        },
+        credits: {
+          enabled: false,
+        },
+        legend: {
+          // Chỉnh legend thành ô hình vuông
+          symbolHeight: 11,
+          symbolWidth: 11,
+          symbolRadius: 0,
+          // Chỉnh màu cho legend
+          itemStyle: {
+            color: colors.textColor,
+          },
+          //borderWidth: 2,
+          //backgroundColor: colors.textColor,
         },
         xAxis: {
           labels: {
@@ -94,27 +112,27 @@ export default {
             name: "Berlin",
             data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4],
           },
-                    {
+          {
             name: "Berlin",
             data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4],
           },
-                    {
+          {
             name: "Berlin",
             data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4],
           },
-                    {
+          {
             name: "Berlin",
             data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4],
           },
-                    {
+          {
             name: "Berlin",
             data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4],
           },
-                    {
+          {
             name: "Berlin",
             data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4],
           },
-                    {
+          {
             name: "Berlin",
             data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4],
           },
