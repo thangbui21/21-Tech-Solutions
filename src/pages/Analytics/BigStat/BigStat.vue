@@ -25,7 +25,7 @@
                 </div>
                 <div class="w-50 py-3 pl-2">
                     <div class="d-flex align-items-start">
-                        <h6>{{bounce.value}}k</h6>
+                        <h6>${{bounce.value}}</h6>
                         <i :class="`la la-arrow-right la-lg ml-sm text-${bounce.profit ? 'primary' : 'danger'}
                 rotate-${bounce.profit ? '315' : '45'}`" />
                     </div>

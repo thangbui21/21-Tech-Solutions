@@ -26,7 +26,7 @@
       v-for="(row, index) in info"
       v-bind:key="index"
     >
-      <div class="col-md-9 col-12">
+      <div class="col-md-9 col-12" v-if="index < 2">
         <h6 class="name">{{ row.productType }}</h6>
         <p class="description deemphasize mb-xs">
           {{ row.description }} {{ (row.sold / row.target) * 100 }}

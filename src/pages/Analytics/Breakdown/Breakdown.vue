@@ -48,6 +48,18 @@ export default {
         tooltip: {
           enabled: false,
         },
+         legend: {
+          // Chỉnh legend thành ô hình vuông
+          symbolHeight: 11,
+          symbolWidth: 11,
+          symbolRadius: 0,
+          // Chỉnh màu cho legend
+          itemStyle: {
+            color: colors.textColor,
+          },
+          //borderWidth: 2,
+          //backgroundColor: colors.textColor,
+        },
         series: [
           {
             data: [

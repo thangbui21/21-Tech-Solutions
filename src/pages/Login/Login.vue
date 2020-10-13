@@ -1,12 +1,13 @@
 <template>
   <div class="auth-page">
     <b-container>
+      <!--Nếu có logo thì ngon, đổi 21 Company thành logo-->
       <Widget
         class="widget-auth mx-auto"
-        title="<h3 class='mt-0'>Login to your Web App</h3>"
+        title="<h3 class='mt-0'>The 21 Company</h3>"
         customHeader
       >
-        <p class="widget-auth-info">Use your email to sign in.</p>
+        <p class="widget-auth-info">Enterprise Solution</p>
         <form class="mt" @submit.prevent="handleLogin">
           <b-alert class="alert-sm" variant="danger" :show="!!errorMessage">{{errorMessage}}</b-alert>
           <b-form-group label="User" label-for="user">
@@ -52,9 +53,11 @@
               </span>
               Login
             </b-button>
+
             <p class="widget-auth-info mt-4">Don't have an account? Sign up now!</p>
             <router-link class="d-block text-center mb-4" to="login">Create an Account</router-link>
             <div class="social-buttons">
+            <!--
               <b-button variant="primary" class="social-button">
                 <i class="social-icon social-google"></i>
                 <p class="social-text">GOOGLE</p>
@@ -63,6 +66,7 @@
                 <i class="social-icon social-microsoft"></i>
                 <p class="social-text">MICROSOFT</p>
               </b-button>
+              -->
             </div>
           </div>
         </form>
@@ -99,7 +103,7 @@ export default {
 
   created() {
     if (this.loggedIn) {
-      this.$router.push("/app/user");
+      this.$router.push("/app/overview");
     }
   },
 
@@ -115,7 +119,7 @@ export default {
         if (this.user.username && this.user.password) {
           this.$store.dispatch("auth/login", this.user).then(
             () => {
-              this.$router.push("/app/user");
+              this.$router.push("/app/overview");
             },
             (error) => {
               this.loading = false;

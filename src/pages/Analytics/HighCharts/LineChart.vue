@@ -9,13 +9,10 @@
 import Highcharts from "highcharts";
 import exporting from "highcharts/modules/exporting";
 import exportData from "highcharts/modules/export-data";
-
+import { Chart } from "highcharts-vue";
+import config from "../../../config";
 exporting(Highcharts);
 exportData(Highcharts);
-
-import { Chart } from "highcharts-vue";
-
-import config from "../../../config";
 
 const colors = config.colors;
 
@@ -33,18 +30,22 @@ export default {
             height: 350,
             backgroundColor: "transparent",
           },
+          
           exporting: {
             enabled: false,
           },
+          
           title: {
             text: "",
             style: {
               color: colors.textColor,
             },
           },
+          
           credits: {
             enabled: false,
           },
+          
           xAxis: {
             type: "datetime",
             dateTimeLabelFormats: {
@@ -57,6 +58,7 @@ export default {
               },
             },
           },
+          
           yAxis: {
             min: 0,
             title: {
@@ -69,18 +71,27 @@ export default {
             },
             gridLineColor: colors.gridLineColor,
           },
+          
           tooltip: {
             headerFormat: "<b>{series.name}</b><br>",
             pointFormat: "{point.x:%e. %b}: {point.y:.2f} m",
           },
+
           legend: {
             enabled: true,
             align: "center",
+
+            symbolHeight: 11,
+            symbolWidth: 11,
+            symbolRadius: 0,
+
             verticalAlign: "top",
-            style: {
+            
+            itemStyle: {
               color: colors.textColor,
             },
           },
+
           plotOptions: {
             series: {
               marker: {
@@ -89,15 +100,14 @@ export default {
               },
             },
           },
-          colors: [colors.red, colors.blue, colors.green],
+          
+          colors: [colors.red, colors.green, colors.blue],
 
           series: [
             {
               name: "Đồ uống",
               type: "areaspline",
-              style: {
-                plotOptions: "Dash",
-              },
+
               fillColor: {
                 linearGradient: {
                   x1: 0,
@@ -115,6 +125,7 @@ export default {
                   ],
                 ],
               },
+              
               data: [
                 [Date.UTC(2020, 9, 1), 30],
                 [Date.UTC(2020, 9, 2), 23],
@@ -146,7 +157,8 @@ export default {
               ],
             },
             {
-              name: "Đồ ăn nhẹ",
+              name: "Đồ ăn",
+              //dashStyle: 'ShortDash',
               type: "spline",
               data: [
                 [Date.UTC(2020, 9, 1), 12],

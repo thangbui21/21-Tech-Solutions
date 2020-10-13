@@ -2,7 +2,7 @@
   <div>
     <div class="widget-body p-0">
       <div class="list-group list-group-lg" v-for="(row, message) in info" v-bind:key="message">
-        <a class="list-group-item" href="/#/app/analytics">
+        <a class="list-group-item" href="/app/analytics">
           <span class="thumb-sm float-left mr">
             <img
               class="rounded-circle"
@@ -12,7 +12,7 @@
             <i class="status status-bottom bg-success" />
           </span>
           <div >
-            <h6 class="m-0">{{row.sender}}</h6>
+            <h6 class="m-0"><b>{{row.sender}}</b></h6>
             <p class="help-block text-ellipsis m-0">{{row.content}}</p>
           </div>
         </a>

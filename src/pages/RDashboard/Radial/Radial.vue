@@ -17,7 +17,7 @@ exportData(Highcharts);
 import config from "../../../config";
 const colors = config.colors;
 export default {
-  name: "PieChart",
+  name: "StackedColumn",
   components: {
     highcharts: Chart,
   },
@@ -125,15 +125,20 @@ export default {
         series: [
           {
             name: "Trà Chanh",
-            data: [132, 105, 92, 73, 64, 33, 21],
+            data: [21, 33, 64, 73, 92, 105, 132],
           },
           {
             name: "Trà Đào",
-            data: [125, 110, 86, 64, 81, 87, 33],
+            data: [33, 87, 81, 64, 86, 110, 125],
           },
+
           {
             name: "Vối đá",
-            data: [111, 90, 60, 62, 87, 21, 44],
+            data: [44, 21, 87, 62, 60, 90, 111]
+          },
+          {
+            name: "Red Bull",
+            data: [40, 33, 40, 40, 86, 72, 90],
           },
         ],
       },

@@ -4,22 +4,13 @@
       <thead>
         <tr class="text-muted">
           <th>NAME</th>
-          <th>EMAIL</th>
           <th>PRODUCT</th>
-          <th>PRICE</th>
-          <th>DATE</th>
-          <th>CITY</th>
-          <th>STATUS</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="row in mock.table" :key="row.id">
           <td>{{ row.name }}</td>
-          <td>{{ row.email }}</td>
           <td>{{ row.product }}</td>
-          <td>{{ row.price }}</td>
-          <td>{{ row.date }}</td>
-          <td>{{ row.city }}</td>
           <td>
             <b-button
               :variant="

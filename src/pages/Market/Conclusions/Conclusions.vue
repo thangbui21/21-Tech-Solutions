@@ -22,25 +22,45 @@
         <div>
           <b-progress
             :variant="col.color"
-            :value="(col.lastMonth / col.monthly) * 100"
+            :value="Math.abs( ((col.monthly - col.lastMonth)/col.lastMonth ) * 100)"
             :max="100"
             class="progress-xs"
           />
         </div>
-        <p>
-          <small>
-            <span class="circle bg-primary text-white">
-              <i class="la la-angle-up" />
-            </span>
-          </small>
-          <span class="fw-semi-bold">
-            Cao hơn &nbsp;{{
-              Math.floor(((col.monthly - col.lastMonth) / col.monthly) * 100)
-            }}
-            %
-          </span>
-          &nbsp;so với tháng trước
-        </p>
+
+                  <p v-if="col.monthly - col.lastMonth > 0">
+              <small>
+                <span class="circle bg-primary text-white">
+                  <i class="la la-angle-up" />
+                </span>
+              </small>
+              <span class="fw-semi-bold">
+                Cao hơn &nbsp;{{
+                  Math.floor(
+                    ((col.monthly - col.lastMonth) / col.monthly) * 100
+                  )
+                }}
+                %
+              </span>
+              &nbsp;so với tháng trước
+            </p>
+
+            <p v-else>
+              <small>
+                <span class="circle bg-primary text-white">
+                  <i class="la la-angle-down" />
+                </span>
+              </small>
+              <span class="fw-semi-bold">
+                Thấp hơn&nbsp;{{
+                  Math.floor(
+                    ((col.monthly - col.lastMonth) / col.monthly) * 100
+                  ) * -1
+                }}% 
+              </span>
+              &nbsp;so với tháng trước
+            </p>
+
       </div>
     </div>
   </div>

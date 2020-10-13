@@ -62,11 +62,11 @@ export default {
         },
         yAxis: [
           {
-                        labels: {
-            style: {
-              color: colors.textColor,
+            labels: {
+              style: {
+                color: colors.textColor,
+              },
             },
-          },
             gridLineColor: colors.gridLineColor,
             min: 0,
             title: {
@@ -77,11 +77,11 @@ export default {
             },
           },
           {
-                        labels: {
-            style: {
-              color: colors.textColor,
+            labels: {
+              style: {
+                color: colors.textColor,
+              },
             },
-          },
             gridLineColor: colors.gridLineColor,
             title: {
               text: "Profit (millions)",

@@ -1,5 +1,5 @@
 <template>
-  <div class="visits-page">
+  <div>
     <h1 class="page-title">
       Tổng Quan &nbsp;
       <small>
@@ -62,7 +62,7 @@
             <div>
               <b-progress
                 :variant="col.color"
-                :value="(col.lastMonth / col.monthly) * 100"
+                :value=" Math.abs( ((col.monthly - col.lastMonth)/col.lastMonth ) * 100)"
                 :max="100"
                 class="progress-xs"
               />
@@ -95,7 +95,7 @@
                   Math.floor(
                     ((col.monthly - col.lastMonth) / col.monthly) * 100
                   ) * -1
-                }}%
+                }}% 
               </span>
               &nbsp;so với tháng trước
             </p>
@@ -116,11 +116,13 @@
           customHeader
         >
           <Calendar />
+          <div style="text-align: center; margin-top: 10px"><p>Xãy xử lý công việc đúng thời gian.</P></div>
+          
         </Widget>
       </b-col>
       <b-col lg="4" xs="12">
         <Widget
-          title="<h6><span class='badge badge-danger'>New</span>&nbsp&nbsp Tin nhắn</h6>"
+          title="<h6><span class='badge badge-danger'>New</span>&nbsp&nbsp <b>Tin nhắn</b></h6>"
           refresh
           close
           customHeader
@@ -130,7 +132,7 @@
       </b-col>
       <b-col lg="4" xs="12">
         <Widget
-          title="<h6><span class='badge badge-success'>Today task</span>&nbsp&nbsp Mục tiêu hôm nay</h6>"
+          title="<h6><span class='badge badge-success'>Today task</span>&nbsp&nbsp <b>Mục tiêu hôm nay</b></h6>"
           refresh
           close
           customHeader

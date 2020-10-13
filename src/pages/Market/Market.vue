@@ -1,7 +1,11 @@
 <template>
   <div class="dashboard-page">
-    <h1 class="page-title">Market</h1>
-    <p>Thị trường tương lai</p>
+    <h1 class="page-title">
+      Market &nbsp;
+      <small>
+        <small>Thị trường tương lai</small>
+      </small>
+    </h1>
     <b-row>
       <b-col lg="4" xs="6">
         <Widget title="THỐNG KÊ" close settings customHeader
@@ -18,7 +22,7 @@
                 >
                   .
                 </span>
-                This Period
+                Tháng này
               </small>
               <small class="mr-lg d-flex align-items-center">
                 <span
@@ -27,19 +31,10 @@
                 >
                   .
                 </span>
-                Last Period
-              </small>
-                            <small class="mr-lg d-flex align-items-center">
-                <span
-                  class="circle bg-primary text-primary mr-xs"
-                  style="font-size: 4px"
-                >
-                  .
-                </span>
-                Last Period
+                Tháng trước
               </small>
             </p>
-            <h6>SDK</h6>
+            <h6>Đồ uống</h6>
             <b-progress
               class="mb-xs"
               style="height: 5px"
@@ -54,7 +49,7 @@
               :value="35"
               :max="100"
             />
-            <h6>Integration</h6>
+            <h6>Đồ ăn</h6>
             <b-progress
               class="mb-xs"
               style="height: 5px"
@@ -68,7 +63,7 @@
               :value="55"
               :max="100"
             />
-                        <h6>Integration</h6>
+            <h6>Sách</h6>
             <b-progress
               class="mb-xs"
               style="height: 5px"
@@ -77,12 +72,6 @@
               :max="100"
             />
             <b-progress
-              style="height: 5px"
-              variant="primary"
-              :value="55"
-              :max="100"
-            />
-              <b-progress
               style="height: 5px"
               variant="primary"
               :value="55"

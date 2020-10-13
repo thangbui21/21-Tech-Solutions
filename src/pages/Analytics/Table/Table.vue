@@ -5,16 +5,19 @@
         <tr class="text-uppercase">
           <th>MÃ HÀNG</th>
           <th>TÊN HÀNG</th>
-          <th>SỐ LƯỢNG</th>
+          <th>LOẠI HÀNG</th>
           <th>ĐƠN GIÁ</th>
-          <th>TÌNH TRẠNG</th>
+          <th>DAILY</th>
+          <th>MONTHLY</th>
         </tr>
       </thead>
       <tbody v-for="(row, index) in info" v-bind:key="index">
         <!--Đoạn này kiểm tra == current user.-->
         <tr v-if="row.userId === 'guest'">
-          <td>{{ row.productType }}</td>
+          <td>#</td>
           <td>{{ row.productName }}</td>
+          <td>{{ row.productType }}</td>
+          <td>Price</td>
           <td>{{ row.daily }}</td>
           <td>{{ row.monthly }}</td>
         </tr>

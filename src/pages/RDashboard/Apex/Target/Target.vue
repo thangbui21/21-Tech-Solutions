@@ -26,7 +26,7 @@ export default {
   },
   data: function () {
     return {
-      series: [44, 55, 67, 83, 72],
+      series: [83, 55, 67, 43],
           chartOptions: {
             chart: {
               height: 330,
@@ -52,7 +52,7 @@ export default {
                 }
               }
             },
-            labels: ['Trà Chanh', 'Trà Đào', 'Vối đá', 'Chanh leo', 'Trà đá'],
+            labels: ['Trà Chanh', 'Trà Đào', 'Vối đá', 'Red Bull'],
           },
           
  };

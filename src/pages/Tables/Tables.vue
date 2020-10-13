@@ -1,5 +1,11 @@
 <template>
 <div class="tables-basic">
+      <h1 class="page-title">
+      Product Tables &nbsp;
+      <small>
+        <small>Liệt kê các mặt hàng trong cửa hàng của bạn</small>
+      </small>
+    </h1>
     <b-row>
         <b-col lg="12" xs="12" sm="12" md="12">
             <keyproduct1 />

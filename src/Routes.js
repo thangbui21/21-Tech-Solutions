@@ -3,8 +3,7 @@ import Router from 'vue-router';
 
 import Layout from '@/components/Layout/Layout';
 import Tables from '@/pages/Tables/Tables';
-import Charts from '@/pages/Charts/Charts';
-import Dashboard from '@/pages/Overview/Overview';
+import Overview from '@/pages/Overview/Overview';
 import Login from '@/pages/Login/Login';
 import ErrorPage from '@/pages/Error/Error';
 import Analytics from '@/pages/Analytics/Analytics';
@@ -14,7 +13,8 @@ import RDashboard from '@/pages/RDashboard/RDashboard';
 Vue.use(Router);
 
 export default new Router({
-    mode: 'hash',
+    // Tìm hiểu xem mode 'hash' với 'history' khác nhau như nào?
+    mode: 'history',
     routes: [
         {
             path: '/login',
@@ -34,7 +34,7 @@ export default new Router({
                 {
                     path: 'overview',
                     name: 'Overview',
-                    component: Dashboard,
+                    component: Overview,
                 },
                 {
                     path: 'product-tables',

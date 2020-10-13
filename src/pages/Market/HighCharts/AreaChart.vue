@@ -71,7 +71,6 @@ export default {
             },
           },
           accessibility: {
-            rangeDescription: "Range: 2015 to 2017.",
           },
         },
         yAxis: {
@@ -90,11 +89,12 @@ export default {
         },
         tooltip: {
           pointFormat:
-            "{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}",
+            "{series.name}  <b>{point.y:,.0f}</b>",
         },
         plotOptions: {
           area: {
-            pointStart: 2010,
+            // Tìm thử theo ngày xem như nào? Label by date
+            pointStart: 1,
             marker: {
               enabled: false,
               symbol: "circle",
@@ -109,7 +109,7 @@ export default {
         },
         series: [
           {
-            name: "USA",
+            name: "guest",
             data: [
               10,
               16,
@@ -168,7 +168,7 @@ export default {
             ],
           },
           {
-            name: "USSR/Russia",
+            name: "Another user",
             data: [
               21,
               12,

@@ -1,53 +1,25 @@
 <template>
   <div>
     <div class="widget-body p-0">
-      <div class="list-group list-group-lg">
+      <div
+        class="list-group list-group-lg"
+        v-for="(row, task) in todayTask"
+        v-bind:key="task"
+      >
         <a class="list-group-item">
           <span class="thumb-sm float-left mr">
             <b-form-checkbox
               id="checkbox"
-              v-model="task"
-              name="today-task"
-              value="accepted"
-              unchecked-value="not_accepted"
+              v-model="taskSelected"
+              name="checkbox"
+              value="selected"
+              unchecked-value="not_selected"
             >
             </b-form-checkbox>
           </span>
-          <div style="">
-            <h6 class="m-0">Today Task 1</h6>
-            <p class="help-block text-ellipsis m-0">Làm xong Market</p>
-          </div>
-        </a>
-        <a class="list-group-item">
-          <span class="thumb-sm float-left mr">
-            <b-form-checkbox
-              id="checkbox1"
-              v-model="task"
-              name="today-task"
-              value="accepted"
-              unchecked-value="not_accepted"
-            >
-            </b-form-checkbox>
-          </span>
-          <div style="">
-            <h6 class="m-0">Today Task 1</h6>
-            <p class="help-block text-ellipsis m-0">Làm xong Market</p>
-          </div>
-        </a>
-        <a class="list-group-item">
-          <span class="thumb-sm float-left mr">
-            <b-form-checkbox
-              id="checkbox2"
-              v-model="task"
-              name="today-task"
-              value="accepted"
-              unchecked-value="not_accepted"
-            >
-            </b-form-checkbox>
-          </span>
-          <div style="">
-            <h6 class="m-0">Today Task 1</h6>
-            <p class="help-block text-ellipsis m-0">Làm xong Market</p>
+          <div>
+            <h6 class="m-0"><b>{{ row.title }}</b></h6>
+            <p class="help-block text-ellipsis m-0">{{ row.content }}</p>
           </div>
         </a>
       </div>
@@ -56,11 +28,29 @@
 </template>
 
 <script>
+import Vue from "vue";
+import UserService from "../../../services/user.service";
 export default {
   name: "TodayTask",
   data() {
-    return {};
+    return {
+      taskSelected: [],
+      todayTask: null,
+    };
   },
-  methods: {},
+  methods: {
+    calColumnSize: function (noCol) {
+      return Math.floor(12 / noCol);
+    },
+
+    getTodayTask() {
+      UserService.get("/api/todaytask").then((response) => {
+        this.todayTask = response.data;
+      });
+    },
+  },
+  created() {
+    this.getTodayTask();
+  },
 };
 </script>

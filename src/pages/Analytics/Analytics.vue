@@ -1,22 +1,34 @@
 <template>
   <div class="dashboard-page">
-    <h1 class="page-title">Analytics</h1>
+    <h1 class="page-title">
+      Analytics &nbsp;
+      <small>
+        <small>Phân tích dữ liệu của bạn</small>
+      </small>
+    </h1>
     <b-row>
       <b-col lg="12" xs="12">
         <b-row>
           <!-- Total product -->
           <b-col lg="4" xs="6">
             <div class="pb-xlg h-100">
-              <Widget class="h-100 mb-0" title="THỐNG KÊ" close>
+              <Widget class="h-100 mb-0" title="THỐNG KÊ"  close>
+              <p></p>
                 <TotalProduct />
               </Widget>
             </div>
           </b-col>
 
           <!-- Nhập hàng vào kho-->
-          <b-col lg="4"  xs="6">
+          <b-col lg="4" xs="6">
             <div class="pb-xlg h-100">
-              <Widget class="h-100 mb-0" title="<h6>HÀNG NHẬP KHO</h6>" close settings customHeader>
+              <Widget
+                class="h-100 mb-0"
+                title="<h6>HÀNG NHẬP KHO</h6>"
+                close
+                settings
+                customHeader
+              >
                 <Warehouse />
               </Widget>
             </div>
@@ -25,7 +37,13 @@
           <!--Tổng hàng đã bán-->
           <b-col lg="4" xs="6">
             <div class="pb-xlg h-100">
-              <Widget class="h-100 mb-0" title="<h6>HÀNG BÁN RA</h6>" close settings customHeader>
+              <Widget
+                class="h-100 mb-0"
+                title="<h6>HÀNG BÁN RA</h6>"
+                close
+                settings
+                customHeader
+              >
                 <TotalSold />
               </Widget>
             </div>
@@ -42,13 +60,13 @@
               settings
               refresh
             >
-            <p>Biến động về số lượng bán được của các mặt hàng </p>
+              <p>Biến động về số lượng bán được của các mặt hàng</p>
               <LineChart />
             </Widget>
           </b-col>
           <b-col lg="4">
             <Widget title="Doanh thu từ các mặt hàng" close>
-            <p>Số tiền đóng góp trên tổng số</p>
+              <p>Số tiền đóng góp trên tổng số</p>
               <Breakdown />
             </Widget>
           </b-col>
@@ -57,7 +75,13 @@
         <!--Chi tiết mặt hàng-->
         <!--Trả API về, không dùng file mock -->
         <b-row>
-          <b-col xs="12" lg="6" xl="4" v-for="stat in mock.bigStat" :key="stat.id">
+          <b-col
+            xs="12"
+            lg="6"
+            xl="4"
+            v-for="stat in mock.bigStat"
+            :key="stat.id"
+          >
             <BigStat
               :product="stat.product"
               :color="stat.color"
@@ -82,7 +106,6 @@
         </b-row>
       </b-col>
     </b-row>
-   
   </div>
 </template>
 
