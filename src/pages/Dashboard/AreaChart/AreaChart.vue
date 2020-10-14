@@ -1,6 +1,6 @@
 <template>
   <div>
-    <highcharts :options="chartOptions.mixed"></highcharts>
+    <highcharts :options="chartOptions"></highcharts>
   </div>
 </template>
 
@@ -21,13 +21,14 @@ const colors = config.colors;
 
 export default {
   name: "Charts",
+  //props:["chartOptions"],
   components: {
     highcharts: Chart,
   },
   data() {
     return {
       chartOptions: {
-        mixed: {
+        
           chart: {
             type: "spline",
             //height: 350,
@@ -216,7 +217,7 @@ export default {
               ],
             },
           ],
-        },
+      
       },
     };
   },

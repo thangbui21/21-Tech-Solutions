@@ -66,6 +66,8 @@ export default {
     // }),
   },
   methods: {
+    // Phần ngôn ngữ xem lại
+    // Chắc là vẫn chưa OK 
       setLanguege () {
         Vue.i18n.set(this.en)
       },

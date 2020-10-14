@@ -2,7 +2,7 @@
   <div>
     <div class="d-flex justify-content-between align-items-center mb-lg">
       <h6>Đã bán</h6>
-      <h1 class="d-flex align-items-center">100</h1>
+      <h1 class="d-flex align-items-center">{{totalProduct}}</h1>
         <Sparklines
           :data="[{ data: [50, 43, 52, 64, 40, 44, 79] }]"
           :options="getRandomColor()"
@@ -24,7 +24,7 @@
         </p>
       </div>
       <div class="mt">
-        <h6>{{ Math.round((sold / inStock) * 100) / 100 }}%</h6>
+        <h6>{{ Math.round((sold / inStock) * 100) }}%</h6>
         <p class="text-muted mb-0 mr">
           <small>Tỉ lệ</small>
         </p>
@@ -40,21 +40,15 @@ export default {
   components: { Sparklines },
   data() {
     return {
-      totalProduct: 0,
-      sold: 0,
-      inStock: 0,
+      totalProduct: 100,
+      sold: 30,
+      inStock: 70,
       dic: null,
       rate: 0,
     };
   },
   methods: {
-    info() {
-      return {
-        totalProduct: 100,
-        sold: 30,
-        inStock: 370,
-      };
-    },
+
   },
 
   computed: {},
@@ -66,11 +60,6 @@ export default {
         colors: [colors[Math.floor(Math.random() * colors.length)]],
       };
     },
-  },
-  mounted() {
-    (this.totalProduct = this.info().totalProduct),
-      (this.sold = 30),
-      (this.inStock = 70);
   },
 };
 </script>

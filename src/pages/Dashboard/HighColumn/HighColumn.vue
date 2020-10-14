@@ -30,6 +30,7 @@ let lineColors = [colors.blue, colors.green, colors.orange];
 
 export default {
   name: "LineChart",
+  //props:["chartOptions"],
   components: {
     highcharts: Chart,
   },

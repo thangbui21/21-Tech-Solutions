@@ -23,6 +23,7 @@ export default {
   components: {
     highcharts: Chart,
   },
+  //props:["chartOptions"],
   data() {
     return {
       chartOptions: {

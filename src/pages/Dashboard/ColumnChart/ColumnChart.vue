@@ -18,6 +18,7 @@ const colors = config.colors;
 
 export default {
   name: "PieChart",
+  //props:["chartOptions"],
   components: {
     highcharts: Chart,
   },

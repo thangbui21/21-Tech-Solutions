@@ -9,7 +9,7 @@ import ErrorPage from '@/pages/Error/Error';
 import Analytics from '@/pages/Analytics/Analytics';
 import Market from '@/pages/Market/Market';
 import User from '@/pages/User/User';
-import RDashboard from '@/pages/RDashboard/RDashboard';
+import Dashboard from '@/pages/Dashboard/Dashboard';
 Vue.use(Router);
 
 export default new Router({
@@ -45,7 +45,7 @@ export default new Router({
                 {
                     path: 'dashboard',
                     name: 'Dashboard',
-                    component: RDashboard,
+                    component: Dashboard,
                 },
                 {
                     path: 'analytics',

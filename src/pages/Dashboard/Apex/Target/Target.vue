@@ -21,6 +21,7 @@ let columnColors = [
 let lineColors = [colors.blue, colors.green, colors.orange];
 export default {
   name: "Chart",
+  //props:["chartOptions"],
   components: {
     apexcharts: VueApexCharts,
   },

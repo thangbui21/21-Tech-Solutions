@@ -15,8 +15,7 @@
         </span>
         &nbsp;
         <!--Nếu là shop quần áo thì có thể là: Áo sơ mi, Áo thun, Quần, ... -->
-        20 types of
-        <strong></strong>, 10 types of <strong></strong>, and <strong></strong>.
+        Thống kê các loại mặt hàng chính của cửa hàng
       </p>
     </div>
 
@@ -26,7 +25,7 @@
       v-for="(row, index) in info"
       v-bind:key="index"
     >
-      <div class="col-md-9 col-12" v-if="index < 2">
+      <div class="col-md-9 col-12" v-if="index < 3">
         <h6 class="name">{{ row.productType }}</h6>
         <p class="description deemphasize mb-xs">
           {{ row.description }} {{ (row.sold / row.target) * 100 }}

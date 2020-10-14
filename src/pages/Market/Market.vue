@@ -127,7 +127,7 @@
     <b-row>
       <b-col xs="12">
         <Widget
-          title="<h5>Support <span class='fw-semi-bold'>Requests</span></h5>"
+          title="<h5>Đưa ra <span class='fw-semi-bold'>Nhận định</span></h5>"
           bodyClass="widget-table-overflow"
           customHeader
         >

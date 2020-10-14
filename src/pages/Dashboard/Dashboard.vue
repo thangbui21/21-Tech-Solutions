@@ -6,7 +6,7 @@
         <small>Biểu diễn dữ liệu của cửa hàng</small>
       </small>
       <b-button
-        size="sm"
+        
         variant="default"
         style="float: right"
         @click="exportPDF"
@@ -14,7 +14,7 @@
       >
     </h1>
 
-    <div >
+    <div>
       <b-row>
         <b-col lg="4">
           <Widget
@@ -23,11 +23,9 @@
             collapse
             settings
             customHeader
-            
           >
             <p>Biểu diễn các loại mặt hàng theo tỉ lệ %</p>
-            <PieChart ref="printchart"> </PieChart>
-            
+            <PieChart ref="piechart"> </PieChart>
           </Widget>
         </b-col>
 
@@ -40,7 +38,7 @@
             customHeader
           >
             <p>Biến động về số lượng các mặt hàng đã bán</p>
-            <AreaChart />
+            <AreaChart ref="areachart"> </AreaChart>
           </Widget>
         </b-col>
       </b-row>
@@ -51,6 +49,7 @@
           </Widget>
         </b-col>
       </b-row>
+      <!--Stacked column-->
       <b-row>
         <b-col lg="8">
           <Widget
@@ -61,7 +60,7 @@
             customHeader
           >
             <p>Số lượng mặt hàng đã bán trong tuần</p>
-            <Radial />
+            <Radial ref="stackedcolumn"> </Radial>
           </Widget>
         </b-col>
 
@@ -89,7 +88,7 @@
             customHeader
           >
             <p>Tương quan doanh thu các tháng qua của từng sản phẩm</p>
-            <ColumnChart />
+            <ColumnChart ref="columnchart"> </ColumnChart>
           </Widget>
         </b-col>
       </b-row>
@@ -123,6 +122,12 @@ export default {
     HighColumn,
   },
 
+  data() {
+    return {
+      Description: ["It not accept vietnamese?", "Not Thắng bùi", "Đây là chart3", "Đây là chart4"]
+    }
+  },
+
   props: ["chartOptions"],
 
   methods: {
@@ -140,52 +145,79 @@ export default {
               })
           );
 
-      var charts = this.$refs.printchart;
-      alert(charts.length);
+      var pieChart = this.$refs.piechart;
+      var areaChart = this.$refs.areachart;
+      var stackedColumn = this.$refs.stackedcolumn;
+      var columnChart = this.$refs.columnchart;
+      var charts = [pieChart, areaChart, stackedColumn, columnChart];
+      var highcharts = [pieChart, areaChart, stackedColumn, columnChart];
 
-      // var exportUrl = "https://export.highcharts.com/";
-      // var doc = new jsPDF();
-      // var promises = [];
-      // var ajaxCalls = [];
-      // var pageHeight = doc.internal.pageSize.getHeight();
-      // var yDocPos = 0;
-      // var k = 0;
+      var exportUrl = "https://export.highcharts.com/";
+      var doc = new jsPDF();
+      var promises = [];
+      var ajaxCalls = [];
+      var pageHeight = doc.internal.pageSize.getHeight();
+      var yDocPos = 0;
+      var k = 0;
 
-      
+      doc.addFont('Arial')
+      doc.setFont('Arial')
 
-      // for (var i = 0; i < charts.length; i++) {
-      //   chart = charts[i];
+      var header = "BÁO CÁO KINH DOANH";
+      var footer = "Footer";
+      var description = "Description";
 
-      //   ajaxCalls[charts] = Axios.post(exportUrl, {
-      //     options: JSON.stringify(chart.chartOptions),
-      //     type: "image/png",
-      //     async: true,
-      //   });
-      // }
+      doc.setFontSize(16);
+      doc.text(header, doc.internal.pageSize.getWidth() / 2, 15, {
+        align: "center",
+      });
 
-      // Axios.all(ajaxCalls).then((values) => {
-      //   values.forEach((value) => {
-      //     var imgUrl = exportUrl + value.data;
-      //     promises.push(toDataURL(imgUrl));
-      //   });
-      //   Promise.all(promises).then((values) => {
-      //     values.forEach((value, index) => {
-      //       if (yDocPos > pageHeight - 150) {
-      //         doc.addPage();
-      //         yDocPos = 25;
-      //         k = 0;
-      //       } else {
-      //         yDocPos = 25 + k * 140;
-      //       }
-      //       doc.setFontSize(30);
-      //       doc.text(50, yDocPos, "title for Chart" + index);
-      //       yDocPos += 15;
-      //       doc.addImage(value, "PNG", 20, yDocPos);
-      //       k++;
-      //     });
-      //     doc.save("charts.pdf");
-      //   });
+      // doc.setFontSize(16);
+      // doc.text(footer, doc.internal.pageSize.getWidth() / 2, 20, {
+      //   align: "center",
       // });
+
+      // doc.setFontSize(16);
+      // doc.text(description, doc.internal.pageSize.getWidth() / 2, 25, {
+      //   align: "center",
+      // });
+      //doc.addPage();
+
+      for (var i = 0; i < highcharts.length; i++) {
+        var chart = highcharts[i];
+        ajaxCalls[i] = Axios.post(exportUrl, {
+          options: JSON.stringify(chart.chartOptions),
+          type: "image/png",
+          async: true,
+        });
+      }
+
+      Axios.all(ajaxCalls).then((values) => {
+        values.forEach((value) => {
+          var imgUrl = exportUrl + value.data;
+          promises.push(toDataURL(imgUrl));
+        });
+        Promise.all(promises).then((values) => {
+          values.forEach((value, index) => {
+            if (yDocPos > pageHeight - 150) {
+              doc.addPage();
+              yDocPos = 25;
+              k = 0;
+            } else {
+              yDocPos = 25 + k * 140;
+            }
+            doc.setFontSize(16);
+
+            // Cho mảng Description ăn theo index.
+            // Nhưng mà nó không ăn theo font tiếng việt.
+            doc.text(20, yDocPos, this.Description[index]);
+            yDocPos += 15;
+            doc.addImage(value, "PNG", 20, yDocPos);
+            k++;
+          });
+          doc.save("report.pdf");
+        });
+      });
     },
   },
 };
